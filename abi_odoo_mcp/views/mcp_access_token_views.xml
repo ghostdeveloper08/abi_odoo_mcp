@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_mcp_access_token_list" model="ir.ui.view">
+        <field name="name">mcp.access.token.list</field>
+        <field name="model">mcp.access.token</field>
+        <field name="arch" type="xml">
+            <tree string="Access Tokens" decoration-muted="not active">
+                <header>
+                    <button name="action_emergency_revoke_all" type="object" string="Emergency Revoke All Tokens" class="btn-secondary" confirm="CRITICAL WARNING: This will immediately deactivate ALL active AI tokens across the entire company. Are you certain you want to proceed?" groups="base.group_system"/>
+                </header>
+                <field name="name" string="Token Name"/>
+                <field name="user_id" string="Assigned User"/>
+                <field name="token_prefix" string="Token ID"/>
+                <field name="is_readonly" widget="boolean_toggle" string="Read-Only"/>
+                <field name="active" widget="badge" decoration-success="active" decoration-danger="not active"/>
+                <field name="total_calls" string="API Calls"/>
+                <field name="last_used_at" string="Last Used"/>
+                <field name="expires_at" widget="remaining_days" string="Expires In"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_mcp_access_token_form" model="ir.ui.view">
+        <field name="name">mcp.access.token.form</field>
+        <field name="model">mcp.access.token</field>
+        <field name="arch" type="xml">
+            <form string="AI Access Token">
+                <header>
+                    <button name="action_open_config_wizard" type="object" string="Share Connection" class="btn-primary" icon="fa-share-alt"/>
+                    <button name="action_revoke" type="object" string="Revoke Token" class="btn-secondary" invisible="not active" confirm="Are you sure you want to revoke this token? Any AI client using it will immediately lose access."/>
+                    <button name="action_activate" type="object" string="Reactivate" class="btn-secondary" invisible="active"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_open_audit_logs" type="object" class="oe_stat_button" icon="fa-list">
+                            <field name="audit_log_count" widget="statinfo" string="Activity Logs"/>
+                        </button>
+                    </div>
+
+                    <widget name="web_ribbon" title="Revoked" bg_color="text-bg-danger" invisible="active"/>
+                    <widget name="web_ribbon" title="Read Only" bg_color="text-bg-warning" invisible="not is_readonly or not active"/>
+
+                    <div class="oe_title">
+                        <label for="name" string="Connection / Token Name"/>
+                        <h1><field name="name" placeholder="e.g. Claude - Sales Assistant, Cursor AI..."/></h1>
+                    </div>
+
+                    <div class="alert alert-info py-2 mb-3" role="status">
+                        <i class="fa fa-shield me-2" title="Security"/> <strong>Standard Odoo Security:</strong> This connection operates strictly under <strong><field name="user_id" class="d-inline fw-bold" readonly="1"/></strong>'s standard user permissions and company rules. Outsiders cannot connect without this token.
+                    </div>
+
+                    <group>
+                        <group string="Connection Details">
+                            <field name="user_id" string="Assigned User"/>
+                            <field name="token_prefix" readonly="1" string="Token ID"/>
+                            <field name="is_readonly" widget="boolean_toggle" string="Read-Only Mode" help="When enabled, the AI can only view records and cannot create, edit, or delete any data."/>
+                            <field name="active" widget="boolean_toggle" string="Active"/>
+                        </group>
+                        <group string="Limits &amp; Usage">
+                            <field name="expires_at" string="Expiration Date"/>
+                            <field name="rate_limit_per_minute" string="Rate Limit (req/min)"/>
+                            <field name="total_calls" readonly="1" string="Total Requests"/>
+                            <field name="last_used_at" readonly="1" string="Last Active"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Connection Guide" name="guide">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="card h-100 border p-3">
+                                        <h6 class="fw-bold text-primary"><i class="fa fa-globe me-2"/>Claude.ai Web (3 Steps)</h6>
+                                        <p class="small text-muted mb-1">In <strong>Claude.ai Settings &gt; Connectors</strong>, click <em>Add Custom Connector</em>:</p>
+                                        <ul class="small ps-3 mb-0">
+                                            <li><strong>Name:</strong> Odoo ERP</li>
+                                            <li><strong>URL:</strong> Paste the <strong>Server URL</strong> shown above (with <code>?token=...</code>)</li>
+                                            <li>Click <strong>Save</strong> and you're ready!</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card h-100 border p-3">
+                                        <h6 class="fw-bold text-success"><i class="fa fa-desktop me-2"/>Claude Desktop / Cursor</h6>
+                                        <p class="small text-muted mb-1">Click <strong>Connect AI / Share URL</strong> above to view full configuration files for:</p>
+                                        <ul class="small ps-3 mb-0">
+                                            <li><code>claude_desktop_config.json</code> (stdio bridge)</li>
+                                            <li>Cursor / Windsurf <code>.cursor/mcp.json</code> (HTTP)</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </page>
+                        <page string="Network &amp; IP Security" name="ip_firewall">
+                            <p class="text-muted">
+                                Optional: Restrict incoming AI connections to specific IPv4 / IPv6 addresses or CIDR subnets (e.g., 127.0.0.1 for local apps).
+                                Leave blank to allow connections from any network.
+                            </p>
+                            <field name="allowed_ips" placeholder="e.g. 127.0.0.1, 192.168.1.50"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_mcp_access_token_search" model="ir.ui.view">
+        <field name="name">mcp.access.token.search</field>
+        <field name="model">mcp.access.token</field>
+        <field name="arch" type="xml">
+            <search string="Search Access Tokens">
+                <field name="name"/>
+                <field name="user_id"/>
+                <field name="token_prefix"/>
+                <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+                <filter string="Read-Only" name="readonly" domain="[('is_readonly', '=', True)]"/>
+                <separator/>
+                <filter string="My Tokens" name="my_tokens" domain="[('user_id', '=', uid)]"/>
+                <group expand="0" string="Group By">
+                    <filter string="User" name="group_by_user" context="{'group_by': 'user_id'}"/>
+                    <filter string="Status" name="group_by_status" context="{'group_by': 'active'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_mcp_access_token" model="ir.actions.act_window">
+        <field name="name">Access Tokens</field>
+        <field name="res_model">mcp.access.token</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_mcp_access_token_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first AI Access Token!
+            </p>
+            <p>
+                Connect Claude.ai, Claude Desktop, Cursor, or autonomous AI agents securely to your Odoo ERP.
+            </p>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,5 @@
+# This folder stores step-by-step screenshots for Grok (xAI) connection:
+# - step_1.png: Click Plugins > New Connector > Custom (Add your own custom connector)
+# - step_2.png: Enter Name "odoo-mcp", paste HTTPS Server URL, click "Add Connector"
+# - step_3.png: In chat prompt box, click "+", select Connectors, and toggle "odoo-mcp" ON
+# - step_4.png: Ask live ERP questions (e.g., "how many sale order i have") and verify response

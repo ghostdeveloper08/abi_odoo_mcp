@@ -1,0 +1,16 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_mcp_access_token_base_user,mcp.access.token.base.user,model_mcp_access_token,base.group_user,1,1,1,1
+access_mcp_access_token_base_system,mcp.access.token.base.system,model_mcp_access_token,base.group_system,1,1,1,1
+access_mcp_access_token_user,mcp.access.token.user,model_mcp_access_token,group_mcp_user,1,1,1,1
+access_mcp_access_token_manager,mcp.access.token.manager,model_mcp_access_token,group_mcp_manager,1,1,1,1
+access_mcp_audit_log_user,mcp.audit.log.user,model_mcp_audit_log,group_mcp_user,1,0,0,0
+access_mcp_audit_log_manager,mcp.audit.log.manager,model_mcp_audit_log,group_mcp_manager,1,1,1,1
+access_mcp_audit_log_system,mcp.audit.log.system,model_mcp_audit_log,base.group_system,1,1,1,1
+access_mcp_method_whitelist_user,mcp.method.whitelist.user,model_mcp_method_whitelist,group_mcp_user,1,0,0,0
+access_mcp_method_whitelist_manager,mcp.method.whitelist.manager,model_mcp_method_whitelist,group_mcp_manager,1,1,1,1
+access_mcp_method_whitelist_system,mcp.method.whitelist.system,model_mcp_method_whitelist,base.group_system,1,1,1,1
+access_mcp_prompt_user,mcp.prompt.user,model_mcp_prompt,group_mcp_user,1,0,0,0
+access_mcp_prompt_manager,mcp.prompt.manager,model_mcp_prompt,group_mcp_manager,1,1,1,1
+access_mcp_prompt_system,mcp.prompt.system,model_mcp_prompt,base.group_system,1,1,1,1
+access_mcp_config_snippet_wizard_user,mcp.config.snippet.wizard.user,model_mcp_config_snippet_wizard,group_mcp_user,1,1,1,1
+access_mcp_config_snippet_wizard_system,mcp.config.snippet.wizard.system,model_mcp_config_snippet_wizard,base.group_system,1,1,1,1

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <!-- Read-only safe utility methods -->
+    <record id="method_whitelist_search_count" model="mcp.method.whitelist">
+        <field name="name">search_count</field>
+        <field name="is_safe_readonly" eval="True"/>
+        <field name="description">Count records matching a domain filter without side-effects.</field>
+    </record>
+
+    <record id="method_whitelist_fields_get" model="mcp.method.whitelist">
+        <field name="name">fields_get</field>
+        <field name="is_safe_readonly" eval="True"/>
+        <field name="description">Retrieve model field definitions and metadata.</field>
+    </record>
+
+    <record id="method_whitelist_name_get" model="mcp.method.whitelist">
+        <field name="name">name_get</field>
+        <field name="is_safe_readonly" eval="True"/>
+        <field name="description">Retrieve display names for record IDs.</field>
+    </record>
+
+    <!-- Standard Business Workflow Methods -->
+    <record id="method_whitelist_action_confirm" model="mcp.method.whitelist">
+        <field name="name">action_confirm</field>
+        <field name="is_safe_readonly" eval="False"/>
+        <field name="description">Confirm draft documents (Sales Orders, Purchase Orders, etc.).</field>
+    </record>
+
+    <record id="method_whitelist_action_post" model="mcp.method.whitelist">
+        <field name="name">action_post</field>
+        <field name="is_safe_readonly" eval="False"/>
+        <field name="description">Post journal entries, customer invoices, and vendor bills.</field>
+    </record>
+
+    <record id="method_whitelist_action_done" model="mcp.method.whitelist">
+        <field name="name">action_done</field>
+        <field name="is_safe_readonly" eval="False"/>
+        <field name="description">Mark records or transfers as completed/done.</field>
+    </record>
+
+    <record id="method_whitelist_action_draft" model="mcp.method.whitelist">
+        <field name="name">action_draft</field>
+        <field name="is_safe_readonly" eval="False"/>
+        <field name="description">Reset canceled or posted documents back to draft state.</field>
+    </record>
+
+    <record id="method_whitelist_action_cancel" model="mcp.method.whitelist">
+        <field name="name">action_cancel</field>
+        <field name="is_safe_readonly" eval="False"/>
+        <field name="description">Cancel active orders or invoices.</field>
+    </record>
+
+    <record id="method_whitelist_button_approve" model="mcp.method.whitelist">
+        <field name="name">button_approve</field>
+        <field name="is_safe_readonly" eval="False"/>
+        <field name="description">Approve purchase orders or expense sheets requiring managerial approval.</field>
+    </record>
+</odoo>
