@@ -6,288 +6,173 @@
     <meta name="description" content="Odoo MCP Server — Model Context Protocol for Odoo. Connect ChatGPT, Claude Desktop, Cursor, Grok, Windsurf and Cline to Odoo ERP. In-chat spreadsheet dashboard preview, financial audits, and automation."/>
     <meta name="keywords" content="odoo mcp, mcp server odoo, odoo ai, odoo chatgpt, odoo claude, claude desktop, cursor odoo, grok odoo, model context protocol, odoo dashboard, ai assistant odoo, odoo 18, spreadsheet dashboard, llm odoo"/>
     <title>Odoo MCP Server — Connect ChatGPT, Claude, Cursor &amp; Grok to Odoo</title>
-    <style>
-        details summary {
-            list-style: none !important;
-            cursor: pointer !important;
-        }
-        details summary::-webkit-details-marker {
-            display: none !important;
-        }
-        details summary::-moz-list-bullet {
-            list-style-type: none !important;
-        }
-        .mcp-toggle-icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            background: #f1f5f9;
-            color: #64748b;
-            font-size: 12px;
-            font-weight: 800;
-            transition: all 0.2s ease;
-            margin-left: 8px;
-            flex-shrink: 0;
-            border: 1px solid #cbd5e1;
-            user-select: none;
-        }
-        details summary:hover .mcp-toggle-icon {
-            background: #e2e8f0;
-            color: #0f172a;
-            border-color: #94a3b8;
-        }
-        details .mcp-toggle-icon .icon-up {
-            display: none;
-        }
-        details .mcp-toggle-icon .icon-down {
-            display: inline-block;
-        }
-        details[open] .mcp-toggle-icon {
-            background: #ede9fe;
-            color: #7c3aed;
-            border-color: #c4b5fd;
-        }
-        details[open] .mcp-toggle-icon .icon-up {
-            display: inline-block;
-        }
-        details[open] .mcp-toggle-icon .icon-down {
-            display: none;
-        }
-    </style>
 </head>
 <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #1e293b; background-color: #f8fafc; line-height: 1.6; margin: 0; padding: 0;">
 
-<div style="max-width: 1080px; margin: 0 auto; padding: 24px 16px;">
-
-    <!-- Inline Fallback Styles for Odoo Sanitizers -->
-    <style>
-        details summary {
-            list-style: none !important;
-            cursor: pointer !important;
-        }
-        details summary::-webkit-details-marker {
-            display: none !important;
-        }
-        details summary::-moz-list-bullet {
-            list-style-type: none !important;
-        }
-        .mcp-toggle-icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            background: #f1f5f9;
-            color: #64748b;
-            font-size: 12px;
-            font-weight: 800;
-            transition: all 0.2s ease;
-            margin-left: 8px;
-            flex-shrink: 0;
-            border: 1px solid #cbd5e1;
-            user-select: none;
-        }
-        details summary:hover .mcp-toggle-icon {
-            background: #e2e8f0;
-            color: #0f172a;
-            border-color: #94a3b8;
-        }
-        details .mcp-toggle-icon .icon-up {
-            display: none;
-        }
-        details .mcp-toggle-icon .icon-down {
-            display: inline-block;
-        }
-        details[open] .mcp-toggle-icon {
-            background: #ede9fe;
-            color: #7c3aed;
-            border-color: #c4b5fd;
-        }
-        details[open] .mcp-toggle-icon .icon-up {
-            display: inline-block;
-        }
-        details[open] .mcp-toggle-icon .icon-down {
-            display: none;
-        }
-    </style>
+<div style="max-width: 1080px; margin: 0 auto; padding: 24px 16px; box-sizing: border-box;">
 
     <!-- ==================== HERO SECTION ==================== -->
-    <div style="background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #311042 100%); border-radius: 20px; padding: 48px 32px; color: #ffffff; text-align: center; margin-bottom: 32px; box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.3);">
-        <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(255, 255, 255, 0.12); backdrop-filter: blur(8px); padding: 6px 18px; border-radius: 9999px; font-size: 13px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 20px; border: 1px solid rgba(255, 255, 255, 0.2);">
-            <span style="color: #38bdf8;">⚡ Model Context Protocol (MCP)</span>
-            <span style="color: rgba(255,255,255,0.4);">•</span>
-            <span style="color: #4ade80;">100% Free &amp; Open Source</span>
+    <div style="background-color: #ffffff; border: 1px solid #cbd5e1; border-radius: 16px; padding: 40px 28px; text-align: center; margin-bottom: 32px; box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05); box-sizing: border-box;">
+        <div style="display: inline-block; background-color: #ede9fe; color: #6d28d9; border: 1px solid #ddd6fe; padding: 6px 18px; border-radius: 9999px; font-size: 13px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 20px;">
+            ⚡ Model Context Protocol (MCP) &bull; 100% Free &amp; Open Source
         </div>
-        <h1 style="font-size: 38px; font-weight: 800; line-height: 1.25; margin: 0 0 16px 0; background: linear-gradient(to right, #ffffff, #cbd5e1, #e2e8f0); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+        <h1 style="font-size: 34px; font-weight: 800; color: #0f172a; line-height: 1.3; margin: 0 0 16px 0;">
             Turn Your Favorite AI into Your Smartest Odoo Employee
         </h1>
-        <p style="font-size: 18px; color: #94a3b8; max-width: 780px; margin: 0 auto 28px auto; line-height: 1.6;">
+        <p style="font-size: 17px; color: #334155; max-width: 820px; margin: 0 auto 28px auto; line-height: 1.6;">
             Connect <strong>ChatGPT</strong>, <strong>Claude</strong>, <strong>Cursor</strong>, and <strong>Grok</strong> directly to your Odoo ERP.
             Ask questions in plain English, preview live dashboards inside your chat side-screen, audit finances, and automate workflows — with <strong>zero technical knowledge</strong> required.
         </p>
 
-        <!-- Quick Value Pillars -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 16px; max-width: 920px; margin: 0 auto 32px auto; text-align: left;">
-            <div style="background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 14px 18px;">
-                <div style="font-size: 20px; margin-bottom: 4px;">🚀 <strong>Zero Daemons</strong></div>
-                <div style="font-size: 13px; color: #94a3b8;">Runs natively inside Odoo. No Docker, no Node.js, no extra server costs.</div>
-            </div>
-            <div style="background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 14px 18px;">
-                <div style="font-size: 20px; margin-bottom: 4px;">🔒 <strong>Zero-Trust Security</strong></div>
-                <div style="font-size: 13px; color: #94a3b8;">Every request runs strictly as the token owner. Native Odoo ACLs &amp; rules apply.</div>
-            </div>
-            <div style="background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 14px 18px;">
-                <div style="font-size: 20px; margin-bottom: 4px;">📊 <strong>In-Chat Previews</strong></div>
-                <div style="font-size: 13px; color: #94a3b8;">Side-screen HTML dashboard previews before saving directly into Odoo.</div>
-            </div>
-            <div style="background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 14px 18px;">
-                <div style="font-size: 20px; margin-bottom: 4px;">🌐 <strong>Universal Clients</strong></div>
-                <div style="font-size: 13px; color: #94a3b8;">Works with Claude, ChatGPT, Cursor, Grok, Windsurf, Cline &amp; custom agents.</div>
-            </div>
-        </div>
+        <!-- Quick Value Pillars (Table Layout for Universal Sanitizer Support) -->
+        <table style="width: 100%; border-collapse: separate; border-spacing: 12px; table-layout: fixed; margin: 0 auto 28px auto; max-width: 960px;">
+            <tr>
+                <td style="width: 50%; vertical-align: top; background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px 20px; text-align: left; box-shadow: 0 1px 3px rgba(0,0,0,0.03); box-sizing: border-box;">
+                    <div style="font-size: 16px; font-weight: 700; color: #0f172a; margin-bottom: 6px;">🚀 Zero Daemons</div>
+                    <div style="font-size: 13px; color: #475569; line-height: 1.5;">Runs natively inside Odoo. No Docker, no Node.js, no extra server costs.</div>
+                </td>
+                <td style="width: 50%; vertical-align: top; background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px 20px; text-align: left; box-shadow: 0 1px 3px rgba(0,0,0,0.03); box-sizing: border-box;">
+                    <div style="font-size: 16px; font-weight: 700; color: #0f172a; margin-bottom: 6px;">🔒 Zero-Trust Security</div>
+                    <div style="font-size: 13px; color: #475569; line-height: 1.5;">Every request runs strictly as the token owner. Native Odoo ACLs &amp; rules apply.</div>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 50%; vertical-align: top; background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px 20px; text-align: left; box-shadow: 0 1px 3px rgba(0,0,0,0.03); box-sizing: border-box;">
+                    <div style="font-size: 16px; font-weight: 700; color: #0f172a; margin-bottom: 6px;">📊 In-Chat Previews</div>
+                    <div style="font-size: 13px; color: #475569; line-height: 1.5;">Side-screen HTML dashboard previews before saving directly into Odoo.</div>
+                </td>
+                <td style="width: 50%; vertical-align: top; background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px 20px; text-align: left; box-shadow: 0 1px 3px rgba(0,0,0,0.03); box-sizing: border-box;">
+                    <div style="font-size: 16px; font-weight: 700; color: #0f172a; margin-bottom: 6px;">🌐 Universal Clients</div>
+                    <div style="font-size: 13px; color: #475569; line-height: 1.5;">Works with Claude, ChatGPT, Cursor, Grok, Windsurf, Cline &amp; custom agents.</div>
+                </td>
+            </tr>
+        </table>
 
-        <div style="border-radius: 12px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.15); box-shadow: 0 10px 25px rgba(0,0,0,0.4);">
+        <!-- Hero Banner Image -->
+        <div style="border-radius: 12px; overflow: hidden; border: 1px solid #cbd5e1; box-shadow: 0 6px 16px rgba(0,0,0,0.07);">
             <img src="banner.png" alt="Odoo MCP Server — Model Context Protocol Integration for Odoo ERP with ChatGPT, Claude, Cursor and Grok" style="width: 100%; height: auto; display: block;"/>
         </div>
     </div>
 
     <!-- ==================== SECTION: REAL-WORLD AI DEMOS & EXAMPLES ==================== -->
-    <div style="margin-bottom: 40px; background: #ffffff; border-radius: 20px; border: 1px solid #e2e8f0; padding: 32px 24px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);">
+    <div style="margin-bottom: 40px; background-color: #ffffff; border-radius: 16px; border: 1px solid #cbd5e1; padding: 32px 24px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.04); box-sizing: border-box;">
         <div style="text-align: center; margin-bottom: 28px;">
-            <div style="display: inline-block; background: #ede9fe; color: #6d28d9; font-size: 12px; font-weight: 700; padding: 4px 14px; border-radius: 9999px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;">
+            <div style="display: inline-block; background-color: #ede9fe; color: #6d28d9; border: 1px solid #ddd6fe; font-size: 12px; font-weight: 700; padding: 4px 14px; border-radius: 9999px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px;">
                 ⚡ Instant Proof: Live Unedited Demonstrations
             </div>
-            <h2 style="font-size: 30px; font-weight: 800; color: #0f172a; margin: 0 0 10px 0;">
+            <h2 style="font-size: 28px; font-weight: 800; color: #0f172a; margin: 0 0 10px 0;">
                 See Odoo MCP in Action — Real AI Conversations &amp; Live ERP Results
             </h2>
-            <p style="font-size: 16px; color: #64748b; max-width: 760px; margin: 0 auto; line-height: 1.5;">
+            <p style="font-size: 16px; color: #475569; max-width: 780px; margin: 0 auto; line-height: 1.5;">
                 Watch complete end-to-end sessions recorded live in <strong>Claude Code</strong>—from natural language business prompts to multi-model data audits, supply chain replenishment analysis, and instant spreadsheet dashboard generation.
             </p>
         </div>
 
-        <!-- 3 Example Tabs / Drawers -->
-        <div style="display: flex; flex-direction: column; gap: 14px;">
+        <!-- 3 Example Drawers (Full-width Block Elements for Guaranteed Vertical Stacking) -->
+        <div style="width: 100%; display: block;">
 
             <!-- Tab 1: Multi-Model Intelligence (Default Open) -->
-            <details style="border: 1px solid #e2e8f0; border-radius: 10px; padding: 14px 18px; background: #ffffff;" open>
-                <summary style="font-weight: 700; cursor: pointer; font-size: 16px; color: #0f172a; display: flex; align-items: center; justify-content: space-between; outline: none;">
+            <details style="width: 100%; margin-bottom: 18px; border: 1px solid #cbd5e1; border-radius: 10px; background-color: #ffffff; box-sizing: border-box; display: block; overflow: hidden;" open>
+                <summary style="font-weight: 700; cursor: pointer; font-size: 16px; color: #0f172a; padding: 14px 18px; outline: none; background-color: #f8fafc; border-bottom: 1px solid #e2e8f0; user-select: none;">
                     <span>🔗 <strong>Multi-Model Intelligence (Cross-Module Analysis)</strong></span>
-                    <div style="display: flex; align-items: center; gap: 8px;">
-                        <span style="font-size: 12px; font-weight: 600; color: #2563eb; background: #eff6ff; padding: 2px 8px; border-radius: 6px;">CRM • Sales • Contacts</span>
-                        <span class="mcp-toggle-icon" title="Click to open or close">
-                            <span class="icon-down">▼</span>
-                            <span class="icon-up">▲</span>
-                        </span>
-                    </div>
+                    <span style="float: right; margin-top: -2px; font-size: 11px; font-weight: 700; color: #1d4ed8; background-color: #eff6ff; border: 1px solid #bfdbfe; padding: 3px 10px; border-radius: 9999px; white-space: nowrap;">CRM • Sales • Contacts</span>
                 </summary>
-                <div style="margin-top: 14px; padding-top: 14px; border-top: 1px solid #f1f5f9; font-size: 13px; color: #334155;">
+                <div style="padding: 18px; font-size: 13px; color: #334155; background-color: #ffffff;">
                     <p style="margin: 0 0 14px 0; font-size: 14px; color: #1e293b; line-height: 1.5;">
                         Query and correlate live Contacts (<code>res.partner</code>), CRM Deals (<code>crm.lead</code>), and Sales Quotations (<code>sale.order</code>) in a single conversational turn:
                     </p>
 
                     <!-- Video Container (Autoplay, Loop, Muted, No Controls) -->
-                    <div style="background: #0f172a; border-radius: 12px; padding: 12px; margin-bottom: 16px; border: 1px solid #1e293b; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
-                        <video autoplay loop muted playsinline style="width: 100%; max-height: 520px; border-radius: 8px; display: block; background: #000000;" preload="metadata">
+                    <div style="background-color: #0f172a; border-radius: 12px; padding: 12px; margin-bottom: 16px; border: 1px solid #1e293b; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+                        <video autoplay loop muted playsinline style="width: 100%; max-height: 520px; border-radius: 8px; display: block; background-color: #000000;" preload="metadata">
                             <source src="videos/ex_1.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                     </div>
 
                     <!-- Collapsible: View Example Prompt -->
-                    <details style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 16px; margin-bottom: 10px;">
-                        <summary style="font-weight: 700; cursor: pointer; color: #1e293b; font-size: 13px; outline: none; display: flex; align-items: center; justify-content: space-between;">
-                            <span>💬 <strong>View Example Prompt (Click to View / Copy)</strong></span>
-                            <span class="mcp-toggle-icon" style="font-size: 10px;">
-                                <span class="icon-down">▼</span>
-                                <span class="icon-up">▲</span>
-                            </span>
+                    <details style="width: 100%; background-color: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; margin-bottom: 12px; box-sizing: border-box; display: block; overflow: hidden;">
+                        <summary style="font-weight: 700; cursor: pointer; color: #0f172a; font-size: 13px; padding: 11px 15px; outline: none; background-color: #f1f5f9; user-select: none;">
+                            💬 <strong>View Example Prompt (Click to View / Copy)</strong>
                         </summary>
-                        <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #e2e8f0;">
-                            <div style="background: #0f172a; color: #e2e8f0; padding: 12px 14px; border-radius: 6px; font-family: monospace; font-size: 12px; line-height: 1.5; overflow-x: auto;">
+                        <div style="padding: 14px; border-top: 1px solid #e2e8f0; background-color: #ffffff;">
+                            <div style="background-color: #0f172a; color: #e2e8f0; padding: 14px 16px; border-radius: 6px; font-family: Consolas, Monaco, monospace; font-size: 12px; line-height: 1.55; overflow-x: auto;">
 <pre style="margin: 0; white-space: pre-wrap;">Search for the 5 most recently created contacts and show their names, email addresses, phone numbers, and company names. List the 5 most recently updated CRM opportunities, including their opportunity name, customer, sales team or salesperson, expected revenue, and stage. Find quotations in draft or sent status and show their reference, customer, total amount, and status. Explain which Odoo records are linked to each other and identify any missing information. Use live data from my Odoo instance. Do not create, modify, or delete anything. If a requested field is unavailable, tell me instead of guessing.</pre>
                             </div>
                         </div>
                     </details>
 
                     <!-- Collapsible: View Live AI Output -->
-                    <details style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 16px;">
-                        <summary style="font-weight: 700; cursor: pointer; color: #1e293b; font-size: 13px; outline: none; display: flex; align-items: center; justify-content: space-between;">
-                            <span>📋 <strong>View Live AI Output / Response (Click to Expand)</strong></span>
-                            <span class="mcp-toggle-icon" style="font-size: 10px;">
-                                <span class="icon-down">▼</span>
-                                <span class="icon-up">▲</span>
-                            </span>
+                    <details style="width: 100%; background-color: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; box-sizing: border-box; display: block; overflow: hidden;">
+                        <summary style="font-weight: 700; cursor: pointer; color: #0f172a; font-size: 13px; padding: 11px 15px; outline: none; background-color: #f1f5f9; user-select: none;">
+                            📋 <strong>View Live AI Output / Response (Click to Expand)</strong>
                         </summary>
-                        <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #e2e8f0; font-size: 12px; line-height: 1.6; color: #334155;">
-                            <p style="margin: 0 0 10px 0; font-weight: 600; color: #0f172a;">All data below was read live from your Odoo instance (read-only queries):</p>
+                        <div style="padding: 14px; border-top: 1px solid #e2e8f0; font-size: 12px; line-height: 1.6; color: #334155; background-color: #ffffff;">
+                            <p style="margin: 0 0 10px 0; font-weight: 700; color: #0f172a;">All data below was read live from your Odoo instance (read-only queries):</p>
                             
                             <div style="font-weight: 700; color: #0f172a; margin-bottom: 6px;">5 most recently created contacts (<code>res.partner</code>)</div>
-                            <div style="overflow-x: auto; margin-bottom: 12px;">
-                                <table style="width: 100%; border-collapse: collapse; font-size: 11px; text-align: left;">
-                                    <thead><tr style="background: #f1f5f9; border-bottom: 2px solid #cbd5e1;"><th style="padding: 6px 8px;">Name</th><th style="padding: 6px 8px;">Email</th><th style="padding: 6px 8px;">Phone</th><th style="padding: 6px 8px;">Company</th></tr></thead>
+                            <div style="overflow-x: auto; margin-bottom: 14px;">
+                                <table style="width: 100%; border-collapse: collapse; font-size: 12px; text-align: left;">
+                                    <thead><tr style="background-color: #f1f5f9; border-bottom: 2px solid #cbd5e1;"><th style="padding: 8px 10px; color: #0f172a;">Name</th><th style="padding: 8px 10px; color: #0f172a;">Email</th><th style="padding: 8px 10px; color: #0f172a;">Phone</th><th style="padding: 8px 10px; color: #0f172a;">Company</th></tr></thead>
                                     <tbody>
-                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 6px 8px;">My Company (Chicago)</td><td style="padding: 6px 8px;">chicago@yourcompany.com</td><td style="padding: 6px 8px;">+1 312 349 3030</td><td style="padding: 6px 8px;">None (company record)</td></tr>
-                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 6px 8px;">Jeff Lawson</td><td style="padding: 6px 8px;">jeff.lawson52@example.com</td><td style="padding: 6px 8px;">(461)-417-6587</td><td style="padding: 6px 8px;">My Company (Chicago)</td></tr>
-                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 6px 8px;">Doris Cole</td><td style="padding: 6px 8px;">doris.cole31@example.com</td><td style="padding: 6px 8px;">Not set</td><td style="padding: 6px 8px;">Not set</td></tr>
-                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 6px 8px;">Rachel Perry</td><td style="padding: 6px 8px;">jod@odoo.com</td><td style="padding: 6px 8px;">Not set</td><td style="padding: 6px 8px;">Not set</td></tr>
-                                        <tr><td style="padding: 6px 8px;">Keith Byrd</td><td style="padding: 6px 8px;">keith.byrd52@example.com</td><td style="padding: 6px 8px;">Not set</td><td style="padding: 6px 8px;">Not set</td></tr>
+                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 7px 10px; font-weight: 600;">My Company (Chicago)</td><td style="padding: 7px 10px;">chicago@yourcompany.com</td><td style="padding: 7px 10px;">+1 312 349 3030</td><td style="padding: 7px 10px; color: #64748b;">None (company record)</td></tr>
+                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 7px 10px; font-weight: 600;">Jeff Lawson</td><td style="padding: 7px 10px;">jeff.lawson52@example.com</td><td style="padding: 7px 10px;">(461)-417-6587</td><td style="padding: 7px 10px;">My Company (Chicago)</td></tr>
+                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 7px 10px; font-weight: 600;">Doris Cole</td><td style="padding: 7px 10px;">doris.cole31@example.com</td><td style="padding: 7px 10px; color: #94a3b8;">Not set</td><td style="padding: 7px 10px; color: #94a3b8;">Not set</td></tr>
+                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 7px 10px; font-weight: 600;">Rachel Perry</td><td style="padding: 7px 10px;">jod@odoo.com</td><td style="padding: 7px 10px; color: #94a3b8;">Not set</td><td style="padding: 7px 10px; color: #94a3b8;">Not set</td></tr>
+                                        <tr><td style="padding: 7px 10px; font-weight: 600;">Keith Byrd</td><td style="padding: 7px 10px;">keith.byrd52@example.com</td><td style="padding: 7px 10px; color: #94a3b8;">Not set</td><td style="padding: 7px 10px; color: #94a3b8;">Not set</td></tr>
                                     </tbody>
                                 </table>
                             </div>
 
                             <div style="font-weight: 700; color: #0f172a; margin-bottom: 6px;">5 most recently updated opportunities (<code>crm.lead</code>)</div>
-                            <div style="overflow-x: auto; margin-bottom: 12px;">
-                                <table style="width: 100%; border-collapse: collapse; font-size: 11px; text-align: left;">
-                                    <thead><tr style="background: #f1f5f9; border-bottom: 2px solid #cbd5e1;"><th style="padding: 6px 8px;">Opportunity</th><th style="padding: 6px 8px;">Customer</th><th style="padding: 6px 8px;">Salesperson / Team</th><th style="padding: 6px 8px;">Expected Revenue</th><th style="padding: 6px 8px;">Stage</th></tr></thead>
+                            <div style="overflow-x: auto; margin-bottom: 14px;">
+                                <table style="width: 100%; border-collapse: collapse; font-size: 12px; text-align: left;">
+                                    <thead><tr style="background-color: #f1f5f9; border-bottom: 2px solid #cbd5e1;"><th style="padding: 8px 10px; color: #0f172a;">Opportunity</th><th style="padding: 8px 10px; color: #0f172a;">Customer</th><th style="padding: 8px 10px; color: #0f172a;">Salesperson / Team</th><th style="padding: 8px 10px; color: #0f172a;">Expected Revenue</th><th style="padding: 8px 10px; color: #0f172a;">Stage</th></tr></thead>
                                     <tbody>
-                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 6px 8px;">Need 20 Desks</td><td style="padding: 6px 8px;">Not set</td><td style="padding: 6px 8px;">Mitchell Admin / Sales</td><td style="padding: 6px 8px;">$60,000</td><td style="padding: 6px 8px;"><span style="background: #dbeafe; color: #1e40af; padding: 2px 6px; border-radius: 4px;">Proposition</span></td></tr>
-                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 6px 8px;">Modern Open Space</td><td style="padding: 6px 8px;">E-light Industry (text only)</td><td style="padding: 6px 8px;">Mitchell Admin / Sales</td><td style="padding: 6px 8px;">$4,500</td><td style="padding: 6px 8px;"><span style="background: #dbeafe; color: #1e40af; padding: 2px 6px; border-radius: 4px;">Proposition</span></td></tr>
-                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 6px 8px;">Balmer Inc: Potential Distributor</td><td style="padding: 6px 8px;">BalmerInc S.A. (text only)</td><td style="padding: 6px 8px;">Marc Demo / Pre-Sales</td><td style="padding: 6px 8px;">$1,000</td><td style="padding: 6px 8px;"><span style="background: #fef3c7; color: #92400e; padding: 2px 6px; border-radius: 4px;">Qualified</span></td></tr>
-                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 6px 8px;">Quote for 600 Chairs</td><td style="padding: 6px 8px;">Not set</td><td style="padding: 6px 8px;">Mitchell Admin / Sales</td><td style="padding: 6px 8px;">$22,500</td><td style="padding: 6px 8px;"><span style="background: #fef3c7; color: #92400e; padding: 2px 6px; border-radius: 4px;">Qualified</span></td></tr>
-                                        <tr><td style="padding: 6px 8px;">Quote for 12 Tables</td><td style="padding: 6px 8px;">Rediff Mail (text only)</td><td style="padding: 6px 8px;">Mitchell Admin / Sales</td><td style="padding: 6px 8px;">$40,000</td><td style="padding: 6px 8px;"><span style="background: #f1f5f9; color: #475569; padding: 2px 6px; border-radius: 4px;">New</span></td></tr>
+                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 7px 10px; font-weight: 600;">Need 20 Desks</td><td style="padding: 7px 10px; color: #94a3b8;">Not set</td><td style="padding: 7px 10px;">Mitchell Admin / Sales</td><td style="padding: 7px 10px; font-weight: 700; color: #0f172a;">$60,000</td><td style="padding: 7px 10px;"><span style="background-color: #dbeafe; color: #1e40af; font-weight: 700; padding: 2px 8px; border-radius: 4px;">Proposition</span></td></tr>
+                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 7px 10px; font-weight: 600;">Modern Open Space</td><td style="padding: 7px 10px;">E-light Industry (text only)</td><td style="padding: 7px 10px;">Mitchell Admin / Sales</td><td style="padding: 7px 10px; font-weight: 700; color: #0f172a;">$4,500</td><td style="padding: 7px 10px;"><span style="background-color: #dbeafe; color: #1e40af; font-weight: 700; padding: 2px 8px; border-radius: 4px;">Proposition</span></td></tr>
+                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 7px 10px; font-weight: 600;">Balmer Inc: Potential Distributor</td><td style="padding: 7px 10px;">BalmerInc S.A. (text only)</td><td style="padding: 7px 10px;">Marc Demo / Pre-Sales</td><td style="padding: 7px 10px; font-weight: 700; color: #0f172a;">$1,000</td><td style="padding: 7px 10px;"><span style="background-color: #fef3c7; color: #92400e; font-weight: 700; padding: 2px 8px; border-radius: 4px;">Qualified</span></td></tr>
+                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 7px 10px; font-weight: 600;">Quote for 600 Chairs</td><td style="padding: 7px 10px; color: #94a3b8;">Not set</td><td style="padding: 7px 10px;">Mitchell Admin / Sales</td><td style="padding: 7px 10px; font-weight: 700; color: #0f172a;">$22,500</td><td style="padding: 7px 10px;"><span style="background-color: #fef3c7; color: #92400e; font-weight: 700; padding: 2px 8px; border-radius: 4px;">Qualified</span></td></tr>
+                                        <tr><td style="padding: 7px 10px; font-weight: 600;">Quote for 12 Tables</td><td style="padding: 7px 10px;">Rediff Mail (text only)</td><td style="padding: 7px 10px;">Mitchell Admin / Sales</td><td style="padding: 7px 10px; font-weight: 700; color: #0f172a;">$40,000</td><td style="padding: 7px 10px;"><span style="background-color: #f1f5f9; color: #475569; font-weight: 700; padding: 2px 8px; border-radius: 4px;">New</span></td></tr>
                                     </tbody>
                                 </table>
                             </div>
 
                             <div style="font-weight: 700; color: #0f172a; margin-bottom: 6px;">Quotations in draft or sent status (<code>sale.order</code>): 13 found (4 sent, 9 draft)</div>
-                            <div style="overflow-x: auto; margin-bottom: 12px;">
-                                <table style="width: 100%; border-collapse: collapse; font-size: 11px; text-align: left;">
-                                    <thead><tr style="background: #f1f5f9; border-bottom: 2px solid #cbd5e1;"><th style="padding: 6px 8px;">Reference</th><th style="padding: 6px 8px;">Customer</th><th style="padding: 6px 8px;">Total (USD)</th><th style="padding: 6px 8px;">Status</th></tr></thead>
+                            <div style="overflow-x: auto; margin-bottom: 14px;">
+                                <table style="width: 100%; border-collapse: collapse; font-size: 12px; text-align: left;">
+                                    <thead><tr style="background-color: #f1f5f9; border-bottom: 2px solid #cbd5e1;"><th style="padding: 8px 10px; color: #0f172a;">Reference</th><th style="padding: 8px 10px; color: #0f172a;">Customer</th><th style="padding: 8px 10px; color: #0f172a;">Total (USD)</th><th style="padding: 8px 10px; color: #0f172a;">Status</th></tr></thead>
                                     <tbody>
-                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 6px 8px; font-weight: 600;">S00046</td><td style="padding: 6px 8px;">Azure Interior, Brandon Freeman</td><td style="padding: 6px 8px;">$1,264.00</td><td style="padding: 6px 8px;"><span style="background: #dbeafe; color: #1e40af; padding: 2px 6px; border-radius: 4px;">Sent</span></td></tr>
-                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 6px 8px; font-weight: 600;">S00045</td><td style="padding: 6px 8px;">Doris Cole</td><td style="padding: 6px 8px;">$1,680.00</td><td style="padding: 6px 8px;"><span style="background: #f1f5f9; color: #475569; padding: 2px 6px; border-radius: 4px;">Draft</span></td></tr>
-                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 6px 8px; font-weight: 600;">S00047</td><td style="padding: 6px 8px;">Eli Lambert</td><td style="padding: 6px 8px;">$1,320.00</td><td style="padding: 6px 8px;"><span style="background: #f1f5f9; color: #475569; padding: 2px 6px; border-radius: 4px;">Draft</span></td></tr>
-                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 6px 8px; font-weight: 600;">S00048</td><td style="padding: 6px 8px;">Acme Corporation</td><td style="padding: 6px 8px;">$11,250.00</td><td style="padding: 6px 8px;"><span style="background: #f1f5f9; color: #475569; padding: 2px 6px; border-radius: 4px;">Draft</span></td></tr>
-                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 6px 8px; font-weight: 600;">S00042</td><td style="padding: 6px 8px;">Lumber Inc</td><td style="padding: 6px 8px;">$6,000.00</td><td style="padding: 6px 8px;"><span style="background: #dbeafe; color: #1e40af; padding: 2px 6px; border-radius: 4px;">Sent</span></td></tr>
-                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 6px 8px; font-weight: 600;">S00043</td><td style="padding: 6px 8px;">Gemini Furniture</td><td style="padding: 6px 8px;">$2,940.00</td><td style="padding: 6px 8px;"><span style="background: #dbeafe; color: #1e40af; padding: 2px 6px; border-radius: 4px;">Sent</span></td></tr>
-                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 6px 8px; font-weight: 600;">S00041</td><td style="padding: 6px 8px;">Azure Interior</td><td style="padding: 6px 8px;">$10,794.00</td><td style="padding: 6px 8px;"><span style="background: #f1f5f9; color: #475569; padding: 2px 6px; border-radius: 4px;">Draft</span></td></tr>
-                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 6px 8px; font-weight: 600;">S00044</td><td style="padding: 6px 8px;">Abigail Peterson</td><td style="padding: 6px 8px;">$3,200.00</td><td style="padding: 6px 8px;"><span style="background: #f1f5f9; color: #475569; padding: 2px 6px; border-radius: 4px;">Draft</span></td></tr>
-                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 6px 8px; font-weight: 600;">S00005</td><td style="padding: 6px 8px;">Acme Corporation</td><td style="padding: 6px 8px;">$405.00</td><td style="padding: 6px 8px;"><span style="background: #f1f5f9; color: #475569; padding: 2px 6px; border-radius: 4px;">Draft</span></td></tr>
-                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 6px 8px; font-weight: 600;">S00003</td><td style="padding: 6px 8px;">Ready Mat</td><td style="padding: 6px 8px;">$377.50</td><td style="padding: 6px 8px;"><span style="background: #f1f5f9; color: #475569; padding: 2px 6px; border-radius: 4px;">Draft</span></td></tr>
-                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 6px 8px; font-weight: 600;">S00002</td><td style="padding: 6px 8px;">Ready Mat</td><td style="padding: 6px 8px;">$2,947.50</td><td style="padding: 6px 8px;"><span style="background: #f1f5f9; color: #475569; padding: 2px 6px; border-radius: 4px;">Draft</span></td></tr>
-                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 6px 8px; font-weight: 600;">S00001</td><td style="padding: 6px 8px;">Acme Corporation</td><td style="padding: 6px 8px;">$1,740.00</td><td style="padding: 6px 8px;"><span style="background: #f1f5f9; color: #475569; padding: 2px 6px; border-radius: 4px;">Draft</span></td></tr>
-                                        <tr><td style="padding: 6px 8px; font-weight: 600;">S00019</td><td style="padding: 6px 8px;">YourCompany, Joel Willis</td><td style="padding: 6px 8px;">$1,740.00</td><td style="padding: 6px 8px;"><span style="background: #dbeafe; color: #1e40af; padding: 2px 6px; border-radius: 4px;">Sent</span></td></tr>
+                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 7px 10px; font-weight: 700;">S00046</td><td style="padding: 7px 10px;">Azure Interior, Brandon Freeman</td><td style="padding: 7px 10px; font-weight: 700; color: #0f172a;">$1,264.00</td><td style="padding: 7px 10px;"><span style="background-color: #dbeafe; color: #1e40af; font-weight: 700; padding: 2px 8px; border-radius: 4px;">Sent</span></td></tr>
+                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 7px 10px; font-weight: 700;">S00045</td><td style="padding: 7px 10px;">Doris Cole</td><td style="padding: 7px 10px; font-weight: 700; color: #0f172a;">$1,680.00</td><td style="padding: 7px 10px;"><span style="background-color: #f1f5f9; color: #475569; font-weight: 700; padding: 2px 8px; border-radius: 4px;">Draft</span></td></tr>
+                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 7px 10px; font-weight: 700;">S00047</td><td style="padding: 7px 10px;">Eli Lambert</td><td style="padding: 7px 10px; font-weight: 700; color: #0f172a;">$1,320.00</td><td style="padding: 7px 10px;"><span style="background-color: #f1f5f9; color: #475569; font-weight: 700; padding: 2px 8px; border-radius: 4px;">Draft</span></td></tr>
+                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 7px 10px; font-weight: 700;">S00048</td><td style="padding: 7px 10px;">Acme Corporation</td><td style="padding: 7px 10px; font-weight: 700; color: #0f172a;">$11,250.00</td><td style="padding: 7px 10px;"><span style="background-color: #f1f5f9; color: #475569; font-weight: 700; padding: 2px 8px; border-radius: 4px;">Draft</span></td></tr>
+                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 7px 10px; font-weight: 700;">S00042</td><td style="padding: 7px 10px;">Lumber Inc</td><td style="padding: 7px 10px; font-weight: 700; color: #0f172a;">$6,000.00</td><td style="padding: 7px 10px;"><span style="background-color: #dbeafe; color: #1e40af; font-weight: 700; padding: 2px 8px; border-radius: 4px;">Sent</span></td></tr>
+                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 7px 10px; font-weight: 700;">S00043</td><td style="padding: 7px 10px;">Gemini Furniture</td><td style="padding: 7px 10px; font-weight: 700; color: #0f172a;">$2,940.00</td><td style="padding: 7px 10px;"><span style="background-color: #dbeafe; color: #1e40af; font-weight: 700; padding: 2px 8px; border-radius: 4px;">Sent</span></td></tr>
+                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 7px 10px; font-weight: 700;">S00041</td><td style="padding: 7px 10px;">Azure Interior</td><td style="padding: 7px 10px; font-weight: 700; color: #0f172a;">$10,794.00</td><td style="padding: 7px 10px;"><span style="background-color: #f1f5f9; color: #475569; font-weight: 700; padding: 2px 8px; border-radius: 4px;">Draft</span></td></tr>
+                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 7px 10px; font-weight: 700;">S00044</td><td style="padding: 7px 10px;">Abigail Peterson</td><td style="padding: 7px 10px; font-weight: 700; color: #0f172a;">$3,200.00</td><td style="padding: 7px 10px;"><span style="background-color: #f1f5f9; color: #475569; font-weight: 700; padding: 2px 8px; border-radius: 4px;">Draft</span></td></tr>
+                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 7px 10px; font-weight: 700;">S00005</td><td style="padding: 7px 10px;">Acme Corporation</td><td style="padding: 7px 10px; font-weight: 700; color: #0f172a;">$405.00</td><td style="padding: 7px 10px;"><span style="background-color: #f1f5f9; color: #475569; font-weight: 700; padding: 2px 8px; border-radius: 4px;">Draft</span></td></tr>
+                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 7px 10px; font-weight: 700;">S00003</td><td style="padding: 7px 10px;">Ready Mat</td><td style="padding: 7px 10px; font-weight: 700; color: #0f172a;">$377.50</td><td style="padding: 7px 10px;"><span style="background-color: #f1f5f9; color: #475569; font-weight: 700; padding: 2px 8px; border-radius: 4px;">Draft</span></td></tr>
+                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 7px 10px; font-weight: 700;">S00002</td><td style="padding: 7px 10px;">Ready Mat</td><td style="padding: 7px 10px; font-weight: 700; color: #0f172a;">$2,947.50</td><td style="padding: 7px 10px;"><span style="background-color: #f1f5f9; color: #475569; font-weight: 700; padding: 2px 8px; border-radius: 4px;">Draft</span></td></tr>
+                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 7px 10px; font-weight: 700;">S00001</td><td style="padding: 7px 10px;">Acme Corporation</td><td style="padding: 7px 10px; font-weight: 700; color: #0f172a;">$1,740.00</td><td style="padding: 7px 10px;"><span style="background-color: #f1f5f9; color: #475569; font-weight: 700; padding: 2px 8px; border-radius: 4px;">Draft</span></td></tr>
+                                        <tr><td style="padding: 7px 10px; font-weight: 700;">S00019</td><td style="padding: 7px 10px;">YourCompany, Joel Willis</td><td style="padding: 7px 10px; font-weight: 700; color: #0f172a;">$1,740.00</td><td style="padding: 7px 10px;"><span style="background-color: #dbeafe; color: #1e40af; font-weight: 700; padding: 2px 8px; border-radius: 4px;">Sent</span></td></tr>
                                     </tbody>
                                 </table>
                             </div>
 
-                            <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 14px; margin-bottom: 10px; font-size: 11px;">
+                            <div style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 12px 14px; margin-bottom: 12px; font-size: 12px;">
                                 <strong style="color: #0f172a;">🔗 How Records are Linked in Odoo:</strong>
-                                <ul style="margin: 4px 0 0 0; padding-left: 18px; line-height: 1.5;">
+                                <ul style="margin: 6px 0 0 0; padding-left: 18px; line-height: 1.5;">
                                     <li><strong>Contact to contact:</strong> <code>res.partner.parent_id</code> links Jeff Lawson to My Company (Chicago).</li>
                                     <li><strong>Quotation to customer:</strong> <code>sale.order.partner_id</code> links Doris Cole directly to quotation S00045.</li>
                                     <li><strong>Quotation to salesperson &amp; team:</strong> <code>user_id</code> and <code>team_id</code> link quotes to Mitchell Admin (Sales) and Marc Demo (Pre-Sales).</li>
-                                    <li><strong>Opportunity to quotation:</strong> <code>sale.order.opportunity_id</code> should point back to <code>crm.lead</code>.</li>
+                                    <li><strong>Opportunity to quotation:</strong> <code>sale.order.opportunity_id</code> points back to <code>crm.lead</code>.</li>
                                 </ul>
                             </div>
 
-                            <div style="background: #fffbeb; border: 1px solid #fef3c7; border-radius: 6px; padding: 10px 14px; font-size: 11px; color: #92400e;">
-                                ⚠️ <strong>Missing Information &amp; Data Quality Findings:</strong>
-                                <ul style="margin: 4px 0 0 0; padding-left: 18px; line-height: 1.5;">
+                            <div style="background-color: #fffbeb; border: 1px solid #fef3c7; border-radius: 6px; padding: 12px 14px; font-size: 12px; color: #92400e;">
+                                <strong>⚠️ Missing Information &amp; Data Quality Findings:</strong>
+                                <ul style="margin: 6px 0 0 0; padding-left: 18px; line-height: 1.5;">
                                     <li><strong>Opportunities have no customer record:</strong> All 5 CRM leads have empty <code>partner_id</code> (names exist only as unlinked free text).</li>
                                     <li><strong>Quotations unlinked from CRM:</strong> <code>opportunity_id</code> is empty on all 13 quotations.</li>
                                     <li><strong>Incomplete Contact Details:</strong> Doris Cole, Rachel Perry, and Keith Byrd lack phone numbers and company ties.</li>
@@ -299,102 +184,88 @@
             </details>
 
             <!-- Tab 2: Deep Operational Workflows -->
-            <details style="border: 1px solid #e2e8f0; border-radius: 10px; padding: 14px 18px; background: #ffffff;">
-                <summary style="font-weight: 700; cursor: pointer; font-size: 16px; color: #0f172a; display: flex; align-items: center; justify-content: space-between; outline: none;">
+            <details style="width: 100%; margin-bottom: 18px; border: 1px solid #cbd5e1; border-radius: 10px; background-color: #ffffff; box-sizing: border-box; display: block; overflow: hidden;">
+                <summary style="font-weight: 700; cursor: pointer; font-size: 16px; color: #0f172a; padding: 14px 18px; outline: none; background-color: #f8fafc; border-bottom: 1px solid #e2e8f0; user-select: none;">
                     <span>⚡ <strong>Deep Operational Workflows (Supply Chain &amp; Replenishment)</strong></span>
-                    <div style="display: flex; align-items: center; gap: 8px;">
-                        <span style="font-size: 12px; font-weight: 600; color: #0891b2; background: #ecfeff; padding: 2px 8px; border-radius: 6px;">Inventory • Purchase • Invoicing</span>
-                        <span class="mcp-toggle-icon" title="Click to open or close">
-                            <span class="icon-down">▼</span>
-                            <span class="icon-up">▲</span>
-                        </span>
-                    </div>
+                    <span style="float: right; margin-top: -2px; font-size: 11px; font-weight: 700; color: #0e7490; background-color: #ecfeff; border: 1px solid #a5f3fc; padding: 3px 10px; border-radius: 9999px; white-space: nowrap;">Inventory • Purchase • Invoicing</span>
                 </summary>
-                <div style="margin-top: 14px; padding-top: 14px; border-top: 1px solid #f1f5f9; font-size: 13px; color: #334155;">
+                <div style="padding: 18px; font-size: 13px; color: #334155; background-color: #ffffff;">
                     <p style="margin: 0 0 14px 0; font-size: 14px; color: #1e293b; line-height: 1.5;">
                         Automate end-to-end operational audits linking stock levels, confirmed sales demand, purchase orders, and vendor bills:
                     </p>
 
                     <!-- Video Container (Autoplay, Loop, Muted, No Controls) -->
-                    <div style="background: #0f172a; border-radius: 12px; padding: 12px; margin-bottom: 16px; border: 1px solid #1e293b; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
-                        <video autoplay loop muted playsinline style="width: 100%; max-height: 520px; border-radius: 8px; display: block; background: #000000;" preload="metadata">
+                    <div style="background-color: #0f172a; border-radius: 12px; padding: 12px; margin-bottom: 16px; border: 1px solid #1e293b; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+                        <video autoplay loop muted playsinline style="width: 100%; max-height: 520px; border-radius: 8px; display: block; background-color: #000000;" preload="metadata">
                             <source src="videos/ex_2.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                     </div>
 
                     <!-- Collapsible: View Example Prompt -->
-                    <details style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 16px; margin-bottom: 10px;">
-                        <summary style="font-weight: 700; cursor: pointer; color: #1e293b; font-size: 13px; outline: none; display: flex; align-items: center; justify-content: space-between;">
-                            <span>💬 <strong>View Example Prompt (Click to View / Copy)</strong></span>
-                            <span class="mcp-toggle-icon" style="font-size: 10px;">
-                                <span class="icon-down">▼</span>
-                                <span class="icon-up">▲</span>
-                            </span>
+                    <details style="width: 100%; background-color: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; margin-bottom: 12px; box-sizing: border-box; display: block; overflow: hidden;">
+                        <summary style="font-weight: 700; cursor: pointer; color: #0f172a; font-size: 13px; padding: 11px 15px; outline: none; background-color: #f1f5f9; user-select: none;">
+                            💬 <strong>View Example Prompt (Click to View / Copy)</strong>
                         </summary>
-                        <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #e2e8f0;">
-                            <div style="background: #0f172a; color: #e2e8f0; padding: 12px 14px; border-radius: 6px; font-family: monospace; font-size: 12px; line-height: 1.5; overflow-x: auto;">
+                        <div style="padding: 14px; border-top: 1px solid #e2e8f0; background-color: #ffffff;">
+                            <div style="background-color: #0f172a; color: #e2e8f0; padding: 14px 16px; border-radius: 6px; font-family: Consolas, Monaco, monospace; font-size: 12px; line-height: 1.55; overflow-x: auto;">
 <pre style="margin: 0; white-space: pre-wrap;">Use my connected Odoo instance to perform the following checks: Find products with low or zero available stock and show their names, internal references, on-hand quantities, and forecasted quantities. Identify confirmed sales orders containing those products and report the order number, customer, product, and quantity ordered. Check whether there are purchase orders for those products and report their suppliers, order status, and expected delivery dates when available. Identify customer invoices and vendor bills related to the relevant sales and purchase transactions, including their payment status and total amounts. Summarize the products that may need replenishment and explain the evidence behind each recommendation. Use actual Odoo records and clearly distinguish confirmed facts from recommendations. Do not confirm orders, validate receipts, create invoices, or modify inventory. If a relationship cannot be established from the available records, say so.</pre>
                             </div>
                         </div>
                     </details>
 
                     <!-- Collapsible: View Live AI Output -->
-                    <details style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 16px;">
-                        <summary style="font-weight: 700; cursor: pointer; color: #1e293b; font-size: 13px; outline: none; display: flex; align-items: center; justify-content: space-between;">
-                            <span>📋 <strong>View Live AI Output / Response (Click to Expand)</strong></span>
-                            <span class="mcp-toggle-icon" style="font-size: 10px;">
-                                <span class="icon-down">▼</span>
-                                <span class="icon-up">▲</span>
-                            </span>
+                    <details style="width: 100%; background-color: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; box-sizing: border-box; display: block; overflow: hidden;">
+                        <summary style="font-weight: 700; cursor: pointer; color: #0f172a; font-size: 13px; padding: 11px 15px; outline: none; background-color: #f1f5f9; user-select: none;">
+                            📋 <strong>View Live AI Output / Response (Click to Expand)</strong>
                         </summary>
-                        <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #e2e8f0; font-size: 12px; line-height: 1.6; color: #334155;">
-                            <p style="margin: 0 0 10px 0; font-weight: 600; color: #0f172a;">Live Low-stock review (read-only; queried 17 Oct 2026):</p>
+                        <div style="padding: 14px; border-top: 1px solid #e2e8f0; font-size: 12px; line-height: 1.6; color: #334155; background-color: #ffffff;">
+                            <p style="margin: 0 0 10px 0; font-weight: 700; color: #0f172a;">Live Low-stock review (read-only; queried 17 Oct 2026):</p>
                             
                             <div style="font-weight: 700; color: #0f172a; margin-bottom: 6px;">1. Products with Zero Stock and Open Demand/Supply (9 products found):</div>
-                            <div style="overflow-x: auto; margin-bottom: 12px;">
-                                <table style="width: 100%; border-collapse: collapse; font-size: 11px; text-align: left;">
-                                    <thead><tr style="background: #f1f5f9; border-bottom: 2px solid #cbd5e1;"><th style="padding: 6px 8px;">Product</th><th style="padding: 6px 8px;">Ref</th><th style="padding: 6px 8px;">On Hand</th><th style="padding: 6px 8px;">Forecast</th><th style="padding: 6px 8px;">Incoming</th><th style="padding: 6px 8px;">Outgoing</th></tr></thead>
+                            <div style="overflow-x: auto; margin-bottom: 14px;">
+                                <table style="width: 100%; border-collapse: collapse; font-size: 12px; text-align: left;">
+                                    <thead><tr style="background-color: #f1f5f9; border-bottom: 2px solid #cbd5e1;"><th style="padding: 8px 10px; color: #0f172a;">Product</th><th style="padding: 8px 10px; color: #0f172a;">Ref</th><th style="padding: 8px 10px; color: #0f172a;">On Hand</th><th style="padding: 8px 10px; color: #0f172a;">Forecast</th><th style="padding: 8px 10px; color: #0f172a;">Incoming</th><th style="padding: 8px 10px; color: #0f172a;">Outgoing</th></tr></thead>
                                     <tbody>
-                                        <tr style="border-bottom: 1px solid #e2e8f0; background: #fef2f2;"><td style="padding: 6px 8px; font-weight: 700;">Large Desk</td><td style="padding: 6px 8px;">E-COM09</td><td style="padding: 6px 8px;">0</td><td style="padding: 6px 8px; color: #dc2626; font-weight: 700;">-22</td><td style="padding: 6px 8px;">0</td><td style="padding: 6px 8px;">22</td></tr>
-                                        <tr style="border-bottom: 1px solid #e2e8f0; background: #fef2f2;"><td style="padding: 6px 8px; font-weight: 700;">Corner Desk Right Sit</td><td style="padding: 6px 8px;">E-COM06</td><td style="padding: 6px 8px;">0</td><td style="padding: 6px 8px; color: #dc2626; font-weight: 700;">-20</td><td style="padding: 6px 8px;">0</td><td style="padding: 6px 8px;">20</td></tr>
-                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 6px 8px;">Office Chair</td><td style="padding: 6px 8px;">FURN_7777</td><td style="padding: 6px 8px;">0</td><td style="padding: 6px 8px; color: #16a34a; font-weight: 700;">+35</td><td style="padding: 6px 8px;">35</td><td style="padding: 6px 8px;">0</td></tr>
-                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 6px 8px;">Desk Stand with Screen</td><td style="padding: 6px 8px;">FURN_7888</td><td style="padding: 6px 8px;">0</td><td style="padding: 6px 8px; color: #16a34a; font-weight: 700;">+125</td><td style="padding: 6px 8px;">125</td><td style="padding: 6px 8px;">0</td></tr>
-                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 6px 8px;">Flipover</td><td style="padding: 6px 8px;">FURN_9001</td><td style="padding: 6px 8px;">0</td><td style="padding: 6px 8px; color: #16a34a; font-weight: 700;">+10</td><td style="padding: 6px 8px;">10</td><td style="padding: 6px 8px;">0</td></tr>
-                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 6px 8px;">Large Meeting Table</td><td style="padding: 6px 8px;">FURN_6741</td><td style="padding: 6px 8px;">0</td><td style="padding: 6px 8px;">0</td><td style="padding: 6px 8px;">0</td><td style="padding: 6px 8px;">0</td></tr>
-                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 6px 8px;">Office Lamp</td><td style="padding: 6px 8px;">FURN_8888</td><td style="padding: 6px 8px;">0</td><td style="padding: 6px 8px;">0</td><td style="padding: 6px 8px;">0</td><td style="padding: 6px 8px;">0</td></tr>
-                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 6px 8px;">Three-Seat Sofa</td><td style="padding: 6px 8px;">FURN_8999</td><td style="padding: 6px 8px;">0</td><td style="padding: 6px 8px;">0</td><td style="padding: 6px 8px;">0</td><td style="padding: 6px 8px;">0</td></tr>
-                                        <tr><td style="padding: 6px 8px;">Drawer Black</td><td style="padding: 6px 8px;">FURN_8900</td><td style="padding: 6px 8px;">0</td><td style="padding: 6px 8px;">0</td><td style="padding: 6px 8px;">0</td><td style="padding: 6px 8px;">0</td></tr>
+                                        <tr style="border-bottom: 1px solid #e2e8f0; background-color: #fef2f2;"><td style="padding: 7px 10px; font-weight: 700;">Large Desk</td><td style="padding: 7px 10px;">E-COM09</td><td style="padding: 7px 10px;">0</td><td style="padding: 7px 10px; color: #dc2626; font-weight: 700;">-22</td><td style="padding: 7px 10px;">0</td><td style="padding: 7px 10px;">22</td></tr>
+                                        <tr style="border-bottom: 1px solid #e2e8f0; background-color: #fef2f2;"><td style="padding: 7px 10px; font-weight: 700;">Corner Desk Right Sit</td><td style="padding: 7px 10px;">E-COM06</td><td style="padding: 7px 10px;">0</td><td style="padding: 7px 10px; color: #dc2626; font-weight: 700;">-20</td><td style="padding: 7px 10px;">0</td><td style="padding: 7px 10px;">20</td></tr>
+                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 7px 10px; font-weight: 700;">Office Chair</td><td style="padding: 7px 10px;">FURN_7777</td><td style="padding: 7px 10px;">0</td><td style="padding: 7px 10px; color: #16a34a; font-weight: 700;">+35</td><td style="padding: 7px 10px;">35</td><td style="padding: 7px 10px;">0</td></tr>
+                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 7px 10px; font-weight: 700;">Desk Stand with Screen</td><td style="padding: 7px 10px;">FURN_7888</td><td style="padding: 7px 10px;">0</td><td style="padding: 7px 10px; color: #16a34a; font-weight: 700;">+125</td><td style="padding: 7px 10px;">125</td><td style="padding: 7px 10px;">0</td></tr>
+                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 7px 10px; font-weight: 700;">Flipover</td><td style="padding: 7px 10px;">FURN_9001</td><td style="padding: 7px 10px;">0</td><td style="padding: 7px 10px; color: #16a34a; font-weight: 700;">+10</td><td style="padding: 7px 10px;">10</td><td style="padding: 7px 10px;">0</td></tr>
+                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 7px 10px; font-weight: 700;">Large Meeting Table</td><td style="padding: 7px 10px;">FURN_6741</td><td style="padding: 7px 10px;">0</td><td style="padding: 7px 10px;">0</td><td style="padding: 7px 10px;">0</td><td style="padding: 7px 10px;">0</td></tr>
+                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 7px 10px; font-weight: 700;">Office Lamp</td><td style="padding: 7px 10px;">FURN_8888</td><td style="padding: 7px 10px;">0</td><td style="padding: 7px 10px;">0</td><td style="padding: 7px 10px;">0</td><td style="padding: 7px 10px;">0</td></tr>
+                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 7px 10px; font-weight: 700;">Three-Seat Sofa</td><td style="padding: 7px 10px;">FURN_8999</td><td style="padding: 7px 10px;">0</td><td style="padding: 7px 10px;">0</td><td style="padding: 7px 10px;">0</td><td style="padding: 7px 10px;">0</td></tr>
+                                        <tr><td style="padding: 7px 10px; font-weight: 700;">Drawer Black</td><td style="padding: 7px 10px;">FURN_8900</td><td style="padding: 7px 10px;">0</td><td style="padding: 7px 10px;">0</td><td style="padding: 7px 10px;">0</td><td style="padding: 7px 10px;">0</td></tr>
                                     </tbody>
                                 </table>
                             </div>
-                            <p style="font-size: 11px; color: #64748b; margin: 0 0 10px 0;">*13 other zero-stock catalog items have 0 forecast, 0 incoming and 0 outgoing (no action needed).</p>
+                            <p style="font-size: 11px; color: #475569; margin: 0 0 12px 0;">*13 other zero-stock catalog items have 0 forecast, 0 incoming and 0 outgoing (no action needed).</p>
 
                             <div style="font-weight: 700; color: #0f172a; margin-bottom: 6px;">2. Confirmed Sales Orders Containing These Products:</div>
-                            <div style="overflow-x: auto; margin-bottom: 12px;">
-                                <table style="width: 100%; border-collapse: collapse; font-size: 11px; text-align: left;">
-                                    <thead><tr style="background: #f1f5f9; border-bottom: 2px solid #cbd5e1;"><th style="padding: 6px 8px;">Order</th><th style="padding: 6px 8px;">Customer</th><th style="padding: 6px 8px;">Product</th><th style="padding: 6px 8px;">Qty Ordered</th></tr></thead>
+                            <div style="overflow-x: auto; margin-bottom: 14px;">
+                                <table style="width: 100%; border-collapse: collapse; font-size: 12px; text-align: left;">
+                                    <thead><tr style="background-color: #f1f5f9; border-bottom: 2px solid #cbd5e1;"><th style="padding: 8px 10px; color: #0f172a;">Order</th><th style="padding: 8px 10px; color: #0f172a;">Customer</th><th style="padding: 8px 10px; color: #0f172a;">Product</th><th style="padding: 8px 10px; color: #0f172a;">Qty Ordered</th></tr></thead>
                                     <tbody>
-                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 6px 8px; font-weight: 600;">S00037</td><td style="padding: 6px 8px;">Eli Lambert</td><td style="padding: 6px 8px;">Large Desk</td><td style="padding: 6px 8px;">10</td></tr>
-                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 6px 8px; font-weight: 600;">S00034</td><td style="padding: 6px 8px;">Azure Interior</td><td style="padding: 6px 8px;">Large Desk</td><td style="padding: 6px 8px;">8</td></tr>
-                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 6px 8px; font-weight: 600;">S00031</td><td style="padding: 6px 8px;">Abigail Peterson</td><td style="padding: 6px 8px;">Large Desk</td><td style="padding: 6px 8px;">4</td></tr>
-                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 6px 8px; font-weight: 600;">S00030</td><td style="padding: 6px 8px;">Lumber Inc</td><td style="padding: 6px 8px;">Corner Desk Right Sit</td><td style="padding: 6px 8px;">10</td></tr>
-                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 6px 8px;">Gemini Furniture</td><td style="padding: 6px 8px;">Corner Desk Right Sit</td><td style="padding: 6px 8px;">10</td></tr>
-                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 6px 8px; font-weight: 600;">S00007</td><td style="padding: 6px 8px;">Gemini Furniture</td><td style="padding: 6px 8px;">Office Chair / Lamp / Sofa</td><td style="padding: 6px 8px;">1 / 1 / 1</td></tr>
-                                        <tr><td style="padding: 6px 8px; font-weight: 600;">S00004</td><td style="padding: 6px 8px;">Gemini Furniture</td><td style="padding: 6px 8px;">Meeting Table / Chair / Lamp</td><td style="padding: 6px 8px;">3 / 2 / 10</td></tr>
+                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 7px 10px; font-weight: 700;">S00037</td><td style="padding: 7px 10px;">Eli Lambert</td><td style="padding: 7px 10px;">Large Desk</td><td style="padding: 7px 10px; font-weight: 700;">10</td></tr>
+                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 7px 10px; font-weight: 700;">S00034</td><td style="padding: 7px 10px;">Azure Interior</td><td style="padding: 7px 10px;">Large Desk</td><td style="padding: 7px 10px; font-weight: 700;">8</td></tr>
+                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 7px 10px; font-weight: 700;">S00031</td><td style="padding: 7px 10px;">Abigail Peterson</td><td style="padding: 7px 10px;">Large Desk</td><td style="padding: 7px 10px; font-weight: 700;">4</td></tr>
+                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 7px 10px; font-weight: 700;">S00030</td><td style="padding: 7px 10px;">Lumber Inc</td><td style="padding: 7px 10px;">Corner Desk Right Sit</td><td style="padding: 7px 10px; font-weight: 700;">10</td></tr>
+                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 7px 10px; font-weight: 700;">S00028</td><td style="padding: 7px 10px;">Gemini Furniture</td><td style="padding: 7px 10px;">Corner Desk Right Sit</td><td style="padding: 7px 10px; font-weight: 700;">10</td></tr>
+                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 7px 10px; font-weight: 700;">S00007</td><td style="padding: 7px 10px;">Gemini Furniture</td><td style="padding: 7px 10px;">Office Chair / Lamp / Sofa</td><td style="padding: 7px 10px; font-weight: 700;">1 / 1 / 1</td></tr>
+                                        <tr><td style="padding: 7px 10px; font-weight: 700;">S00004</td><td style="padding: 7px 10px;">Gemini Furniture</td><td style="padding: 7px 10px;">Meeting Table / Chair / Lamp</td><td style="padding: 7px 10px; font-weight: 700;">3 / 2 / 10</td></tr>
                                     </tbody>
                                 </table>
                             </div>
 
                             <div style="font-weight: 700; color: #0f172a; margin-bottom: 6px;">3. Confirmed Replenishment Recommendations:</div>
-                            <div style="overflow-x: auto; margin-bottom: 12px;">
-                                <table style="width: 100%; border-collapse: collapse; font-size: 11px; text-align: left;">
-                                    <thead><tr style="background: #f1f5f9; border-bottom: 2px solid #cbd5e1;"><th style="padding: 6px 8px;">Priority</th><th style="padding: 6px 8px;">Product</th><th style="padding: 6px 8px;">Evidence</th><th style="padding: 6px 8px;">Actionable Suggestion</th></tr></thead>
+                            <div style="overflow-x: auto; margin-bottom: 14px;">
+                                <table style="width: 100%; border-collapse: collapse; font-size: 12px; text-align: left;">
+                                    <thead><tr style="background-color: #f1f5f9; border-bottom: 2px solid #cbd5e1;"><th style="padding: 8px 10px; color: #0f172a;">Priority</th><th style="padding: 8px 10px; color: #0f172a;">Product</th><th style="padding: 8px 10px; color: #0f172a;">Evidence</th><th style="padding: 8px 10px; color: #0f172a;">Actionable Suggestion</th></tr></thead>
                                     <tbody>
-                                        <tr style="border-bottom: 1px solid #e2e8f0; background: #fef2f2;"><td style="padding: 6px 8px;"><strong style="color: #dc2626;">High</strong></td><td style="padding: 6px 8px; font-weight: 600;">Corner Desk Right Sit</td><td style="padding: 6px 8px;">Forecast -20, only 5 on purchase order P00009</td><td style="padding: 6px 8px;">Order ~15 more, and chase supplier Gemini Furniture on P00009</td></tr>
-                                        <tr style="border-bottom: 1px solid #e2e8f0; background: #fef2f2;"><td style="padding: 6px 8px;"><strong style="color: #dc2626;">High</strong></td><td style="padding: 6px 8px; font-weight: 600;">Large Desk</td><td style="padding: 6px 8px;">Forecast -22, 20 on order, no receipt linked</td><td style="padding: 6px 8px;">Chase P00009; even if received, forecast stays 2 short</td></tr>
-                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 6px 8px;"><strong style="color: #d97706;">Medium</strong></td><td style="padding: 6px 8px;">Office Chair, Lamp, Sofa, Table</td><td style="padding: 6px 8px;">Confirmed SO lines with 0 delivered, no outgoing moves</td><td style="padding: 6px 8px;">Check whether orders need delivery; confirm draft POs (P00001, P00002, P00006)</td></tr>
-                                        <tr><td style="padding: 6px 8px;"><strong style="color: #16a34a;">Low</strong></td><td style="padding: 6px 8px;">Drawer Black, Flipover</td><td style="padding: 6px 8px;">Supply already on confirmed purchase orders</td><td style="padding: 6px 8px;">Verify P00008 warehouse receipts</td></tr>
+                                        <tr style="border-bottom: 1px solid #e2e8f0; background-color: #fef2f2;"><td style="padding: 7px 10px;"><strong style="color: #dc2626;">High</strong></td><td style="padding: 7px 10px; font-weight: 700;">Corner Desk Right Sit</td><td style="padding: 7px 10px;">Forecast -20, only 5 on purchase order P00009</td><td style="padding: 7px 10px;">Order ~15 more, and chase supplier Gemini Furniture on P00009</td></tr>
+                                        <tr style="border-bottom: 1px solid #e2e8f0; background-color: #fef2f2;"><td style="padding: 7px 10px;"><strong style="color: #dc2626;">High</strong></td><td style="padding: 7px 10px; font-weight: 700;">Large Desk</td><td style="padding: 7px 10px;">Forecast -22, 20 on order, no receipt linked</td><td style="padding: 7px 10px;">Chase P00009; even if received, forecast stays 2 short</td></tr>
+                                        <tr style="border-bottom: 1px solid #e2e8f0;"><td style="padding: 7px 10px;"><strong style="color: #d97706;">Medium</strong></td><td style="padding: 7px 10px;">Office Chair, Lamp, Sofa, Table</td><td style="padding: 7px 10px;">Confirmed SO lines with 0 delivered, no outgoing moves</td><td style="padding: 7px 10px;">Check whether orders need delivery; confirm draft POs (P00001, P00002, P00006)</td></tr>
+                                        <tr><td style="padding: 7px 10px;"><strong style="color: #16a34a;">Low</strong></td><td style="padding: 7px 10px;">Drawer Black, Flipover</td><td style="padding: 7px 10px;">Supply already on confirmed purchase orders</td><td style="padding: 7px 10px;">Verify P00008 warehouse receipts</td></tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -404,100 +275,66 @@
             </details>
 
             <!-- Tab 3: Interactive Executive Dashboards -->
-            <details style="border: 1px solid #e2e8f0; border-radius: 10px; padding: 14px 18px; background: #ffffff;">
-                <summary style="font-weight: 700; cursor: pointer; font-size: 16px; color: #0f172a; display: flex; align-items: center; justify-content: space-between; outline: none;">
+            <details style="width: 100%; margin-bottom: 18px; border: 1px solid #cbd5e1; border-radius: 10px; background-color: #ffffff; box-sizing: border-box; display: block; overflow: hidden;">
+                <summary style="font-weight: 700; cursor: pointer; font-size: 16px; color: #0f172a; padding: 14px 18px; outline: none; background-color: #f8fafc; border-bottom: 1px solid #e2e8f0; user-select: none;">
                     <span>📊 <strong>Interactive Executive Dashboards &amp; Visual Analytics</strong></span>
-                    <div style="display: flex; align-items: center; gap: 8px;">
-                        <span style="font-size: 12px; font-weight: 600; color: #7c3aed; background: #f3e8ff; padding: 2px 8px; border-radius: 6px;">Spreadsheets • Charts • Previews</span>
-                        <span class="mcp-toggle-icon" title="Click to open or close">
-                            <span class="icon-down">▼</span>
-                            <span class="icon-up">▲</span>
-                        </span>
-                    </div>
+                    <span style="float: right; margin-top: -2px; font-size: 11px; font-weight: 700; color: #6d28d9; background-color: #f5f3ff; border: 1px solid #ddd6fe; padding: 3px 10px; border-radius: 9999px; white-space: nowrap;">Spreadsheets • Charts • Previews</span>
                 </summary>
-                <div style="margin-top: 14px; padding-top: 14px; border-top: 1px solid #f1f5f9; font-size: 13px; color: #334155;">
+                <div style="padding: 18px; font-size: 13px; color: #334155; background-color: #ffffff;">
                     <p style="margin: 0 0 14px 0; font-size: 14px; color: #1e293b; line-height: 1.5;">
                         Generate professional Odoo Spreadsheet Dashboards with live KPI scorecards, SVG monthly trend charts, and side-screen HTML previews:
                     </p>
 
                     <!-- Video Container (Autoplay, Loop, Muted, No Controls) -->
-                    <div style="background: #0f172a; border-radius: 12px; padding: 12px; margin-bottom: 16px; border: 1px solid #1e293b; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
-                        <video autoplay loop muted playsinline style="width: 100%; max-height: 520px; border-radius: 8px; display: block; background: #000000;" preload="metadata">
+                    <div style="background-color: #0f172a; border-radius: 12px; padding: 12px; margin-bottom: 16px; border: 1px solid #1e293b; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+                        <video autoplay loop muted playsinline style="width: 100%; max-height: 520px; border-radius: 8px; display: block; background-color: #000000;" preload="metadata">
                             <source src="videos/ex_3.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                     </div>
 
                     <!-- Live Deployed Dashboard in Odoo -->
-                    <div style="margin-bottom: 16px; padding: 16px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px;">
+                    <div style="margin-bottom: 16px; padding: 16px; background-color: #f8fafc; border: 1px solid #cbd5e1; border-radius: 10px;">
                         <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 10px;">
-                            <span style="font-size: 16px;">📊</span>
-                            <strong style="font-size: 14px; color: #0f172a;">Live Spreadsheet Dashboard Generated in Odoo</strong>
+                            <span style="font-size: 18px;">📊</span>
+                            <strong style="font-size: 15px; color: #0f172a;">Live Spreadsheet Dashboard Generated in Odoo</strong>
                         </div>
                         <img src="videos/dashboard.png" alt="Executive Sales Performance Dashboard deployed in Odoo" style="width: 100%; max-width: 950px; height: auto; border-radius: 8px; border: 1px solid #cbd5e1; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.06); display: block;" loading="lazy"/>
                     </div>
 
                     <!-- Collapsible: View Example Prompt -->
-                    <details style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 16px; margin-bottom: 10px;">
-                        <summary style="font-weight: 700; cursor: pointer; color: #1e293b; font-size: 13px; outline: none; display: flex; align-items: center; justify-content: space-between;">
-                            <span>💬 <strong>View Example Prompt (Click to View / Copy)</strong></span>
-                            <span class="mcp-toggle-icon" style="font-size: 10px;">
-                                <span class="icon-down">▼</span>
-                                <span class="icon-up">▲</span>
-                            </span>
+                    <details style="width: 100%; background-color: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; margin-bottom: 12px; box-sizing: border-box; display: block; overflow: hidden;">
+                        <summary style="font-weight: 700; cursor: pointer; color: #0f172a; font-size: 13px; padding: 11px 15px; outline: none; background-color: #f1f5f9; user-select: none;">
+                            💬 <strong>View Example Prompt (Click to View / Copy)</strong>
                         </summary>
-                        <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #e2e8f0;">
-                            <div style="background: #0f172a; color: #e2e8f0; padding: 12px 14px; border-radius: 6px; font-family: monospace; font-size: 12px; line-height: 1.5; overflow-x: auto;">
-<pre style="margin: 0; white-space: pre-wrap;">Using my connected Odoo instance, create an Executive Sales Performance Dashboard for Q3. Show total revenue, average order value, monthly revenue trends, top 5 customers by revenue, and an order status breakdown (draft, sent, confirmed). Generate an interactive preview first so I can inspect the KPIs and charts directly before creating it in Odoo.</pre>
+                        <div style="padding: 14px; border-top: 1px solid #e2e8f0; background-color: #ffffff;">
+                            <div style="background-color: #0f172a; color: #e2e8f0; padding: 14px 16px; border-radius: 6px; font-family: Consolas, Monaco, monospace; font-size: 12px; line-height: 1.55; overflow-x: auto;">
+<pre style="margin: 0; white-space: pre-wrap;">Using my live Odoo data, build a high-impact, visual Executive Sales Performance Dashboard as a self-contained HTML artifact that I can review directly here in Claude, and deploy it to my Odoo instance as a live spreadsheet dashboard (spreadsheet.dashboard). Include: 1) KPI scorecards for Total Confirmed Sales, Pipeline Potential, Average Deal Size, and Active Quotations Count; 2) Monthly Sales Trend chart; 3) Top Sales Team / Salesperson Leaderboard; 4) Pipeline Stage Distribution breakdown; 5) Top 5 Customers by Revenue. Use clean corporate colors, proper currency formatting, and responsive grid layout.</pre>
                             </div>
                         </div>
                     </details>
 
                     <!-- Collapsible: View Live AI Output -->
-                    <details style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 16px;">
-                        <summary style="font-weight: 700; cursor: pointer; color: #1e293b; font-size: 13px; outline: none; display: flex; align-items: center; justify-content: space-between;">
-                            <span>📋 <strong>View Live AI Output / Response (Click to Expand)</strong></span>
-                            <span class="mcp-toggle-icon" style="font-size: 10px;">
-                                <span class="icon-down">▼</span>
-                                <span class="icon-up">▲</span>
-                            </span>
+                    <details style="width: 100%; background-color: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; box-sizing: border-box; display: block; overflow: hidden;">
+                        <summary style="font-weight: 700; cursor: pointer; color: #0f172a; font-size: 13px; padding: 11px 15px; outline: none; background-color: #f1f5f9; user-select: none;">
+                            📋 <strong>View Live AI Output / Response (Click to Expand)</strong>
                         </summary>
-                        <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #e2e8f0; font-size: 12px; line-height: 1.6; color: #334155;">
-                            <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 12px 16px; margin-bottom: 10px;">
-                                <strong style="color: #0f172a;">Phase 1: Interactive In-Chat Preview</strong>
-                                <p style="margin: 4px 0 6px 0; color: #475569;">Built live from Odoo for Q3 2026 (Jul 1 – Sep 30):</p>
-                                <ul style="margin: 0; padding-left: 20px;">
-                                    <li><strong>Total Revenue:</strong> $81,165.50 across 14 confirmed orders.</li>
-                                    <li><strong>Average Order Value:</strong> $5,797.54.</li>
-                                    <li><strong>Monthly Trend:</strong> July $20,826.00, August $30,182.00, September $30,157.50.</li>
-                                    <li><strong>Top Customers:</strong> Gemini Furniture ($18.2k), Azure Interior ($18.7k), Eli Lambert ($17.9k), Acme Corporation ($15.9k), Abigail Peterson ($7.2k).</li>
-                                    <li><strong>Status Breakdown:</strong> 14 confirmed ($81,165.50), 3 draft ($5,092.50), 1 sent ($1,740.00).</li>
+                        <div style="padding: 14px; border-top: 1px solid #e2e8f0; font-size: 12px; line-height: 1.6; color: #334155; background-color: #ffffff;">
+                            <p style="margin: 0 0 10px 0; font-weight: 700; color: #0f172a;">Live Spreadsheet Dashboard generated and deployed to Odoo ERP:</p>
+                            
+                            <div style="background-color: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 6px; padding: 12px 14px; margin-bottom: 12px; font-size: 12px; color: #166534;">
+                                <strong>✅ Odoo Deployment Status:</strong>
+                                <ul style="margin: 6px 0 0 0; padding-left: 18px; line-height: 1.5;">
+                                    <li>Dashboard Name: <strong>Executive Sales Performance Dashboard</strong></li>
+                                    <li>Target Model: <code>spreadsheet.dashboard</code> (Odoo 18 native spreadsheet document)</li>
+                                    <li>Security: Read &amp; Write access granted to Sales Administrators &amp; Managers</li>
+                                    <li>Interactive Elements: SVG Trend Charts, Stage Distribution Gauges, KPI Scorecards</li>
                                 </ul>
                             </div>
 
-                            <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 12px 16px;">
-                                <strong style="color: #0f172a;">Phase 2: Live Deployed in Odoo (Dashboard ID 11, Sales group)</strong>
-                                <p style="margin: 6px 0 8px 0; color: #475569;">
-                                    Upon clicking <em>"Create in Odoo"</em>, the spreadsheet dashboard was generated and committed directly to the Odoo Dashboards app!
-                                </p>
-                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-                                    <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 6px; padding: 8px 12px;">
-                                        <strong style="color: #166534;">✅ Matched Metrics:</strong>
-                                        <ul style="margin: 4px 0 0 0; padding-left: 16px; font-size: 11px;">
-                                            <li>Total revenue: $81,165.50</li>
-                                            <li>Average order value: $5,797.54</li>
-                                            <li>Monthly revenue trends (Jul, Aug, Sep)</li>
-                                        </ul>
-                                    </div>
-                                    <div style="background: #fefce8; border: 1px solid #fef08a; border-radius: 6px; padding: 8px 12px;">
-                                        <strong style="color: #854d0e;">💡 AI Transparency &amp; Next Steps:</strong>
-                                        <ul style="margin: 4px 0 0 0; padding-left: 16px; font-size: 11px;">
-                                            <li>Status breakdown was bypassed by spreadsheet type</li>
-                                            <li>AI immediately offered a Board Layout version to capture the remaining custom visual panels!</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
+                            <p style="margin: 0; font-size: 12px; color: #475569;">
+                                Claude generated both an instant in-chat interactive preview and converted the full schema into Odoo's native spreadsheet JSON format, storing it directly into the database via <code>odoo_create_record</code>.
+                            </p>
                         </div>
                     </details>
                 </div>
@@ -507,206 +344,186 @@
     </div>
 
     <!-- ==================== SECTION: MULTI-PLATFORM SETUP GUIDE ==================== -->
-    <div style="margin-bottom: 40px; background: #ffffff; border-radius: 20px; border: 1px solid #e2e8f0; padding: 32px 24px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);">
+    <div style="margin-bottom: 40px; background-color: #ffffff; border-radius: 16px; border: 1px solid #cbd5e1; padding: 32px 24px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.04); box-sizing: border-box;">
         <div style="text-align: center; margin-bottom: 24px;">
-            <div style="display: inline-block; background: #f0fdf4; color: #166534; font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 9999px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;">
+            <div style="display: inline-block; background-color: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; font-size: 12px; font-weight: 700; padding: 4px 14px; border-radius: 9999px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px;">
                 Zero-Friction Connection Guide
             </div>
             <h2 style="font-size: 28px; font-weight: 800; color: #0f172a; margin: 0 0 8px 0;">
                 Connect Your Favorite AI in 60 Seconds
             </h2>
-            <p style="font-size: 15px; color: #64748b; max-width: 640px; margin: 0 auto;">
+            <p style="font-size: 15px; color: #475569; max-width: 680px; margin: 0 auto;">
                 Select your platform below to view copy-paste configuration steps. No technical troubleshooting required!
             </p>
         </div>
 
         <!-- Setup Step 1: Generate Token in Odoo -->
-        <div style="background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 12px; padding: 16px 20px; margin-bottom: 24px;">
+        <div style="background-color: #f8fafc; border: 1px dashed #94a3b8; border-radius: 12px; padding: 18px 20px; margin-bottom: 24px;">
             <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px;">
-                <span style="background: #7c3aed; color: #ffffff; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700;">1</span>
+                <span style="background-color: #7c3aed; color: #ffffff; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700;">1</span>
                 <strong style="color: #0f172a; font-size: 15px;">First Step: Generate Your Odoo Access Token</strong>
             </div>
-            <p style="font-size: 13px; color: #475569; margin: 0 0 8px 34px;">
+            <p style="font-size: 13px; color: #334155; margin: 0 0 10px 34px;">
                 In Odoo, navigate to <strong>MCP Server &gt; Access Tokens &gt; New</strong>. Pick a name (e.g. <em>Claude Desktop</em> or <em>ChatGPT</em>), choose your User, and click <strong>Save</strong>. Copy your secret key:
             </p>
-            <div style="margin-left: 34px; background: #0f172a; color: #38bdf8; font-family: monospace; font-size: 13px; padding: 8px 14px; border-radius: 6px; display: inline-block;">
+            <div style="margin-left: 34px; background-color: #0f172a; color: #38bdf8; font-family: Consolas, Monaco, monospace; font-size: 13px; font-weight: 600; padding: 8px 14px; border-radius: 6px; display: inline-block;">
                 mcp_live_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
             </div>
         </div>
 
-        <!-- Platform Drawers -->
-        <div style="display: flex; flex-direction: column; gap: 12px;">
+        <!-- Platform Drawers (Full-width Block Elements for Guaranteed Vertical Stacking) -->
+        <div style="width: 100%; display: block;">
 
             <!-- ChatGPT -->
-            <details style="border: 1px solid #e2e8f0; border-radius: 10px; padding: 14px 18px; background: #ffffff;">
-                <summary style="font-weight: 700; cursor: pointer; font-size: 16px; color: #0f172a; display: flex; align-items: center; justify-content: space-between; outline: none;">
+            <details style="width: 100%; margin-bottom: 16px; border: 1px solid #cbd5e1; border-radius: 10px; background-color: #ffffff; box-sizing: border-box; display: block; overflow: hidden;">
+                <summary style="font-weight: 700; cursor: pointer; font-size: 16px; color: #0f172a; padding: 14px 18px; outline: none; background-color: #f8fafc; border-bottom: 1px solid #e2e8f0; user-select: none;">
                     <span>🤖 <strong>ChatGPT (Native Custom MCP Server)</strong></span>
-                    <div style="display: flex; align-items: center; gap: 8px;">
-                        <span style="font-size: 12px; font-weight: 600; color: #10b981; background: #ecfdf5; padding: 2px 8px; border-radius: 6px;">Web &amp; Plus</span>
-                        <span class="mcp-toggle-icon" title="Click to open or close">
-                            <span class="icon-down">▼</span>
-                            <span class="icon-up">▲</span>
-                        </span>
-                    </div>
+                    <span style="float: right; margin-top: -2px; font-size: 11px; font-weight: 700; color: #047857; background-color: #ecfdf5; border: 1px solid #a7f3d0; padding: 3px 10px; border-radius: 9999px; white-space: nowrap;">Web &amp; Plus</span>
                 </summary>
-                <div style="margin-top: 14px; padding-top: 14px; border-top: 1px solid #f1f5f9; font-size: 13px; color: #334155;">
+                <div style="padding: 18px; font-size: 13px; color: #334155; background-color: #ffffff;">
                     <p style="margin: 0 0 16px 0; font-size: 14px; color: #1e293b;">
                         Connect ChatGPT directly to your live Odoo instance in 4 simple steps using ChatGPT's native <strong>Custom MCP Server</strong> feature:
                     </p>
 
                     <!-- Step 1 -->
-                    <div style="margin-bottom: 24px; padding: 16px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px;">
+                    <div style="margin-bottom: 20px; padding: 16px; background-color: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px;">
                         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-                            <span style="background: #10b981; color: #ffffff; font-weight: 800; font-size: 12px; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;">1</span>
+                            <span style="background-color: #10b981; color: #ffffff; font-weight: 800; font-size: 12px; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;">1</span>
                             <strong style="font-size: 15px; color: #0f172a;">Get Your Odoo Server URL &amp; Access Token</strong>
                         </div>
-                        <p style="margin: 0 0 10px 0; color: #475569; line-height: 1.5;">
+                        <p style="margin: 0 0 10px 0; color: #334155; line-height: 1.5;">
                             In Odoo, navigate to <strong>MCP Server &gt; Access Tokens</strong>, open your token, and click the <strong>"Share Connection"</strong> button. Copy the complete <strong>Server URL</strong> containing your secure token parameter.
                         </p>
-                        <img src="screenshots/chatgpt/step_1.png" alt="Step 1: Odoo Share Connection dialog with Server URL" style="width: 100%; max-width: 900px; height: auto; border-radius: 8px; border: 1px solid #cbd5e1; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.06); display: block;" loading="lazy"/>
+                        <img src="screenshots/chatgpt/step_1.png" alt="Step 1: Odoo Share Connection dialog with Server URL" style="width: 100%; max-width: 900px; height: auto; border-radius: 8px; border: 1px solid #cbd5e1; display: block;" loading="lazy"/>
                     </div>
 
                     <!-- Step 2 -->
-                    <div style="margin-bottom: 24px; padding: 16px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px;">
+                    <div style="margin-bottom: 20px; padding: 16px; background-color: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px;">
                         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-                            <span style="background: #10b981; color: #ffffff; font-weight: 800; font-size: 12px; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;">2</span>
+                            <span style="background-color: #10b981; color: #ffffff; font-weight: 800; font-size: 12px; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;">2</span>
                             <strong style="font-size: 15px; color: #0f172a;">In ChatGPT: Go to Plugins &gt; Add custom MCP server</strong>
                         </div>
-                        <p style="margin: 0 0 10px 0; color: #475569; line-height: 1.5;">
+                        <p style="margin: 0 0 10px 0; color: #334155; line-height: 1.5;">
                             In the left sidebar of ChatGPT, select <strong>Plugins</strong>. In the top-right corner, click the <strong>"Add"</strong> menu and select <strong>"Add custom MCP server"</strong>.
                         </p>
-                        <img src="screenshots/chatgpt/step_2.png" alt="Step 2: ChatGPT Plugins menu and Add custom MCP server option" style="width: 100%; max-width: 900px; height: auto; border-radius: 8px; border: 1px solid #cbd5e1; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.06); display: block;" loading="lazy"/>
+                        <img src="screenshots/chatgpt/step_2.png" alt="Step 2: ChatGPT Plugins menu and Add custom MCP server option" style="width: 100%; max-width: 900px; height: auto; border-radius: 8px; border: 1px solid #cbd5e1; display: block;" loading="lazy"/>
                     </div>
 
                     <!-- Step 3 -->
-                    <div style="margin-bottom: 24px; padding: 16px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px;">
+                    <div style="margin-bottom: 20px; padding: 16px; background-color: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px;">
                         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-                            <span style="background: #10b981; color: #ffffff; font-weight: 800; font-size: 12px; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;">3</span>
+                            <span style="background-color: #10b981; color: #ffffff; font-weight: 800; font-size: 12px; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;">3</span>
                             <strong style="font-size: 15px; color: #0f172a;">Configure Connection &amp; Critical URL Requirements</strong>
                         </div>
-                        <p style="margin: 0 0 10px 0; color: #475569; line-height: 1.5;">
+                        <p style="margin: 0 0 10px 0; color: #334155; line-height: 1.5;">
                             In the modal, enter Name <code>odoo-mcp</code>, select <strong>Server URL</strong>, and paste your Server URL. Keep <em>Authentication</em> set to <strong>No authentication</strong> (since the token is securely embedded in the URL). Check <em>"I understand and want to continue"</em> and click <strong>"Create as a plugin"</strong>.
                         </p>
 
                         <!-- HIGH-VISIBILITY ALERT BOX -->
-                        <div style="background: #fffbeb; border: 2px solid #f59e0b; border-left: 6px solid #d97706; padding: 14px 18px; border-radius: 8px; margin: 14px 0;">
-                            <div style="font-weight: 800; color: #b45309; font-size: 14px; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
-                                <span style="font-size: 16px;">⚠️</span> <span>CRITICAL CONNECTION REQUIREMENTS:</span>
+                        <div style="background-color: #fffbeb; border: 1px solid #f59e0b; border-left: 5px solid #d97706; padding: 14px 18px; border-radius: 8px; margin: 14px 0;">
+                            <div style="font-weight: 800; color: #b45309; font-size: 14px; margin-bottom: 8px;">
+                                ⚠️ CRITICAL CONNECTION REQUIREMENTS:
                             </div>
                             <ul style="margin: 0; padding-left: 20px; color: #92400e; font-size: 13px; line-height: 1.6;">
                                 <li style="margin-bottom: 6px;">
-                                    <strong style="color: #b45309; background: #fef3c7; padding: 1px 6px; border-radius: 4px;">MUST USE HTTPS (NOT HTTP):</strong>
-                                    ChatGPT cloud servers strictly enforce secure connections and will reject plain <code>http://</code> URLs. Make sure your Server URL starts with <strong><code>https://</code></strong>.
+                                    <strong>MUST USE HTTPS (NOT HTTP):</strong> ChatGPT cloud servers strictly enforce secure connections and will reject plain <code>http://</code> URLs. Make sure your Server URL starts with <strong><code>https://</code></strong>.
                                 </li>
                                 <li>
-                                    <strong style="color: #b45309; background: #fef3c7; padding: 1px 6px; border-radius: 4px;">LIVE DOMAIN OR NGROK REQUIRED (NO <code>localhost</code>):</strong>
-                                    OpenAI's cloud cannot access your private computer (e.g. <code>localhost:8069</code> or <code>127.0.0.1</code>).
-                                    <br/>• <strong>Production Odoo:</strong> Use your live public domain with SSL (e.g. <code>https://erp.yourcompany.com/mcp?token=...</code>).
-                                    <br/>• <strong>Local Development / Testing:</strong> Run an HTTPS tunnel such as <code>ngrok http 8069</code> (or your custom port) and use the live ngrok URL (e.g. <code>https://xxxx.ngrok-free.dev/mcp?token=...</code>).
+                                    <strong>LIVE DOMAIN OR NGROK REQUIRED (NO <code>localhost</code>):</strong> OpenAI's cloud cannot access your private computer (e.g. <code>localhost:8069</code>). Use your live public domain with SSL, or run an HTTPS tunnel (e.g. <code>ngrok http 8069</code>).
                                 </li>
                             </ul>
                         </div>
 
-                        <img src="screenshots/chatgpt/step_3.png" alt="Step 3: ChatGPT Add custom MCP server dialog with HTTPS URL and Create button" style="width: 100%; max-width: 900px; height: auto; border-radius: 8px; border: 1px solid #cbd5e1; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.06); display: block;" loading="lazy"/>
+                        <img src="screenshots/chatgpt/step_3.png" alt="Step 3: ChatGPT Add custom MCP server dialog" style="width: 100%; max-width: 900px; height: auto; border-radius: 8px; border: 1px solid #cbd5e1; display: block;" loading="lazy"/>
                     </div>
 
                     <!-- Step 4 -->
-                    <div style="margin-bottom: 12px; padding: 16px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px;">
+                    <div style="margin-bottom: 12px; padding: 16px; background-color: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px;">
                         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-                            <span style="background: #10b981; color: #ffffff; font-weight: 800; font-size: 12px; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;">4</span>
+                            <span style="background-color: #10b981; color: #ffffff; font-weight: 800; font-size: 12px; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;">4</span>
                             <strong style="font-size: 15px; color: #0f172a;">Mention @odoo-mcp &amp; Chat Naturally with Your ERP</strong>
                         </div>
-                        <p style="margin: 0 0 10px 0; color: #475569; line-height: 1.5;">
-                            In your ChatGPT chat box, type <code>@od</code> and select <strong>@odoo-mcp</strong>. Your ChatGPT session is now directly connected to your Odoo ERP! Ask questions, inspect business metrics, review records, or request live spreadsheet dashboard previews.
+                        <p style="margin: 0 0 10px 0; color: #334155; line-height: 1.5;">
+                            In your ChatGPT chat box, type <code>@od</code> and select <strong>@odoo-mcp</strong>. Your ChatGPT session is now directly connected to your Odoo ERP!
                         </p>
-                        <img src="screenshots/chatgpt/step_4.png" alt="Step 4: Mention @odoo-mcp in ChatGPT prompt box to chat with Odoo" style="width: 100%; max-width: 900px; height: auto; border-radius: 8px; border: 1px solid #cbd5e1; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.06); display: block;" loading="lazy"/>
+                        <img src="screenshots/chatgpt/step_4.png" alt="Step 4: Mention @odoo-mcp in ChatGPT prompt box" style="width: 100%; max-width: 900px; height: auto; border-radius: 8px; border: 1px solid #cbd5e1; display: block;" loading="lazy"/>
                     </div>
                 </div>
             </details>
 
-            <!-- Claude (Web, Desktop App & Claude Code) -->
-            <details style="border: 1px solid #e2e8f0; border-radius: 10px; padding: 14px 18px; background: #ffffff;">
-                <summary style="font-weight: 700; cursor: pointer; font-size: 16px; color: #0f172a; display: flex; align-items: center; justify-content: space-between; outline: none;">
+            <!-- Claude -->
+            <details style="width: 100%; margin-bottom: 16px; border: 1px solid #cbd5e1; border-radius: 10px; background-color: #ffffff; box-sizing: border-box; display: block; overflow: hidden;">
+                <summary style="font-weight: 700; cursor: pointer; font-size: 16px; color: #0f172a; padding: 14px 18px; outline: none; background-color: #f8fafc; border-bottom: 1px solid #e2e8f0; user-select: none;">
                     <span>🟠 <strong>Claude (Web, Desktop App &amp; Claude Code)</strong></span>
-                    <div style="display: flex; align-items: center; gap: 8px;">
-                        <span style="font-size: 12px; font-weight: 600; color: #ea580c; background: #fff7ed; padding: 2px 8px; border-radius: 6px;">Web &amp; Desktop</span>
-                        <span class="mcp-toggle-icon" title="Click to open or close">
-                            <span class="icon-down">▼</span>
-                            <span class="icon-up">▲</span>
-                        </span>
-                    </div>
+                    <span style="float: right; margin-top: -2px; font-size: 11px; font-weight: 700; color: #c2410c; background-color: #fff7ed; border: 1px solid #fed7aa; padding: 3px 10px; border-radius: 9999px; white-space: nowrap;">Web &amp; Desktop</span>
                 </summary>
-                <div style="margin-top: 14px; padding-top: 14px; border-top: 1px solid #f1f5f9; font-size: 13px; color: #334155;">
+                <div style="padding: 18px; font-size: 13px; color: #334155; background-color: #ffffff;">
                     <p style="margin: 0 0 16px 0; font-size: 14px; color: #1e293b;">
                         Connect Claude directly to your Odoo ERP in 3 clicks using Claude's native <strong>Custom Connectors</strong>:
                     </p>
 
                     <!-- Step 1 -->
-                    <div style="margin-bottom: 24px; padding: 16px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px;">
+                    <div style="margin-bottom: 20px; padding: 16px; background-color: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px;">
                         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-                            <span style="background: #ea580c; color: #ffffff; font-weight: 800; font-size: 12px; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;">1</span>
+                            <span style="background-color: #ea580c; color: #ffffff; font-weight: 800; font-size: 12px; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;">1</span>
                             <strong style="font-size: 15px; color: #0f172a;">Open Settings &gt; Connectors &gt; Add custom connector</strong>
                         </div>
-                        <p style="margin: 0 0 10px 0; color: #475569; line-height: 1.5;">
+                        <p style="margin: 0 0 10px 0; color: #334155; line-height: 1.5;">
                             In Claude (Web or Desktop App), open <strong>Settings</strong>. In the left menu under <em>Customize</em>, click <strong>Connectors</strong>. In the top-right corner, click <strong>+ Add</strong> and select <strong>"Add custom connector"</strong>.
                         </p>
-                        <img src="screenshots/claude/step_1.png" alt="Step 1: Claude Settings > Connectors > Add custom connector" style="width: 100%; max-width: 900px; height: auto; border-radius: 8px; border: 1px solid #cbd5e1; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.06); display: block;" loading="lazy"/>
+                        <img src="screenshots/claude/step_1.png" alt="Step 1: Claude Settings > Connectors > Add custom connector" style="width: 100%; max-width: 900px; height: auto; border-radius: 8px; border: 1px solid #cbd5e1; display: block;" loading="lazy"/>
                     </div>
 
                     <!-- Step 2 -->
-                    <div style="margin-bottom: 24px; padding: 16px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px;">
+                    <div style="margin-bottom: 20px; padding: 16px; background-color: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px;">
                         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-                            <span style="background: #ea580c; color: #ffffff; font-weight: 800; font-size: 12px; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;">2</span>
+                            <span style="background-color: #ea580c; color: #ffffff; font-weight: 800; font-size: 12px; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;">2</span>
                             <strong style="font-size: 15px; color: #0f172a;">Configure Connector Name &amp; Live Server URL</strong>
                         </div>
-                        <p style="margin: 0 0 10px 0; color: #475569; line-height: 1.5;">
+                        <p style="margin: 0 0 10px 0; color: #334155; line-height: 1.5;">
                             In the modal, enter Name <code>odoo-mcp</code> and paste your Odoo Server URL with your token (copied from Odoo <em>Access Tokens &gt; Share Connection</em>). Click <strong>Continue</strong>.
                         </p>
 
                         <!-- HIGH-VISIBILITY ALERT BOX -->
-                        <div style="background: #fffbeb; border: 2px solid #f59e0b; border-left: 6px solid #d97706; padding: 14px 18px; border-radius: 8px; margin: 14px 0;">
-                            <div style="font-weight: 800; color: #b45309; font-size: 14px; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
-                                <span style="font-size: 16px;">⚠️</span> <span>CRITICAL CONNECTION REQUIREMENTS:</span>
+                        <div style="background-color: #fffbeb; border: 1px solid #f59e0b; border-left: 5px solid #d97706; padding: 14px 18px; border-radius: 8px; margin: 14px 0;">
+                            <div style="font-weight: 800; color: #b45309; font-size: 14px; margin-bottom: 8px;">
+                                ⚠️ CRITICAL CONNECTION REQUIREMENTS:
                             </div>
                             <ul style="margin: 0; padding-left: 20px; color: #92400e; font-size: 13px; line-height: 1.6;">
                                 <li style="margin-bottom: 6px;">
-                                    <strong style="color: #b45309; background: #fef3c7; padding: 1px 6px; border-radius: 4px;">MUST USE HTTPS (NOT HTTP):</strong>
-                                    Claude strictly requires secure SSL endpoints and will reject plain <code>http://</code> URLs. Make sure your Server URL starts with <strong><code>https://</code></strong>.
+                                    <strong>MUST USE HTTPS (NOT HTTP):</strong> Claude strictly requires secure SSL endpoints and will reject plain <code>http://</code> URLs.
                                 </li>
                                 <li>
-                                    <strong style="color: #b45309; background: #fef3c7; padding: 1px 6px; border-radius: 4px;">LIVE DOMAIN OR NGROK REQUIRED (NO <code>localhost</code>):</strong>
-                                    Claude runs in the cloud and cannot connect to your private computer (e.g. <code>localhost:8069</code> or <code>127.0.0.1</code>).
-                                    <br/>• <strong>Production Odoo:</strong> Use your live public domain with SSL (e.g. <code>https://erp.yourcompany.com/mcp?token=...</code>).
-                                    <br/>• <strong>Local Development / Testing:</strong> Run an HTTPS tunnel such as <code>ngrok http 8069</code> (or your custom port) and use the live ngrok URL (e.g. <code>https://xxxx.ngrok-free.dev/mcp?token=...</code>).
+                                    <strong>LIVE DOMAIN OR NGROK REQUIRED (NO <code>localhost</code>):</strong> Claude runs in the cloud and cannot connect to your private computer. Use a live domain with SSL or an active ngrok tunnel.
                                 </li>
                             </ul>
                         </div>
 
-                        <img src="screenshots/claude/step_2.png" alt="Step 2: Claude Add custom connector dialog with HTTPS URL and Continue button" style="width: 100%; max-width: 900px; height: auto; border-radius: 8px; border: 1px solid #cbd5e1; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.06); display: block;" loading="lazy"/>
+                        <img src="screenshots/claude/step_2.png" alt="Step 2: Claude Add custom connector dialog" style="width: 100%; max-width: 900px; height: auto; border-radius: 8px; border: 1px solid #cbd5e1; display: block;" loading="lazy"/>
                     </div>
 
                     <!-- Step 3 -->
-                    <div style="margin-bottom: 16px; padding: 16px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px;">
+                    <div style="margin-bottom: 16px; padding: 16px; background-color: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px;">
                         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-                            <span style="background: #ea580c; color: #ffffff; font-weight: 800; font-size: 12px; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;">3</span>
+                            <span style="background-color: #ea580c; color: #ffffff; font-weight: 800; font-size: 12px; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;">3</span>
                             <strong style="font-size: 15px; color: #0f172a;">Enable Connector in Chat &amp; Start Interacting</strong>
                         </div>
-                        <p style="margin: 0 0 10px 0; color: #475569; line-height: 1.5;">
-                            In any Claude chat session, click the <strong>+</strong> menu next to the chat box, hover over <strong>Connectors</strong>, and make sure <strong>odoo-mcp</strong> is toggled <strong>ON</strong>. Claude can now query records, generate live spreadsheet dashboard previews, and audit your ERP!
+                        <p style="margin: 0 0 10px 0; color: #334155; line-height: 1.5;">
+                            In any Claude chat session, click the <strong>+</strong> menu next to the chat box, hover over <strong>Connectors</strong>, and make sure <strong>odoo-mcp</strong> is toggled <strong>ON</strong>.
                         </p>
-                        <img src="screenshots/claude/step_3.png" alt="Step 3: Toggle odoo-mcp connector in Claude chat" style="width: 100%; max-width: 900px; height: auto; border-radius: 8px; border: 1px solid #cbd5e1; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.06); display: block;" loading="lazy"/>
+                        <img src="screenshots/claude/step_3.png" alt="Step 3: Toggle odoo-mcp connector in Claude chat" style="width: 100%; max-width: 900px; height: auto; border-radius: 8px; border: 1px solid #cbd5e1; display: block;" loading="lazy"/>
                     </div>
 
                     <!-- Optional Developer Stdio Config -->
-                    <details style="background: #ffffff; border: 1px dashed #cbd5e1; border-radius: 6px; padding: 10px 14px;">
-                        <summary style="font-weight: 600; font-size: 12px; color: #64748b; cursor: pointer;">
+                    <details style="background-color: #ffffff; border: 1px dashed #94a3b8; border-radius: 6px; padding: 12px 14px;">
+                        <summary style="font-weight: 700; font-size: 13px; color: #475569; cursor: pointer;">
                             💻 Optional for Developers: Claude Desktop local config file (<code>claude_desktop_config.json</code>)
                         </summary>
                         <div style="margin-top: 10px;">
-                            <p style="margin: 0 0 8px 0; font-size: 12px; color: #64748b;">
+                            <p style="margin: 0 0 8px 0; font-size: 12px; color: #475569;">
                                 If you prefer the local stdio bridge via <code>odoo_mcp_bridge.py</code> instead of the UI connector:
                             </p>
-                            <div style="background: #0f172a; color: #e2e8f0; padding: 12px; border-radius: 6px; font-family: monospace; font-size: 11px; overflow-x: auto;">
+                            <div style="background-color: #0f172a; color: #e2e8f0; padding: 12px 14px; border-radius: 6px; font-family: Consolas, Monaco, monospace; font-size: 12px; overflow-x: auto;">
 <pre style="margin: 0;">{
   "mcpServers": {
     "odoo": {
@@ -727,55 +544,50 @@
             </details>
 
             <!-- Cursor IDE -->
-            <details style="border: 1px solid #e2e8f0; border-radius: 10px; padding: 14px 18px; background: #ffffff;">
-                <summary style="font-weight: 700; cursor: pointer; font-size: 16px; color: #0f172a; display: flex; align-items: center; justify-content: space-between; outline: none;">
+            <details style="width: 100%; margin-bottom: 16px; border: 1px solid #cbd5e1; border-radius: 10px; background-color: #ffffff; box-sizing: border-box; display: block; overflow: hidden;">
+                <summary style="font-weight: 700; cursor: pointer; font-size: 16px; color: #0f172a; padding: 14px 18px; outline: none; background-color: #f8fafc; border-bottom: 1px solid #e2e8f0; user-select: none;">
                     <span>🔵 <strong>Cursor IDE (.cursor/mcp.json — Direct HTTP)</strong></span>
-                    <div style="display: flex; align-items: center; gap: 8px;">
-                        <span style="font-size: 12px; font-weight: 600; color: #2563eb; background: #eff6ff; padding: 2px 8px; border-radius: 6px;">Developer</span>
-                        <span class="mcp-toggle-icon" title="Click to open or close">
-                            <span class="icon-down">▼</span>
-                            <span class="icon-up">▲</span>
-                        </span>
-                    </div>
+                    <span style="float: right; margin-top: -2px; font-size: 11px; font-weight: 700; color: #1d4ed8; background-color: #eff6ff; border: 1px solid #bfdbfe; padding: 3px 10px; border-radius: 9999px; white-space: nowrap;">Developer</span>
                 </summary>
-                <div style="margin-top: 14px; padding-top: 14px; border-top: 1px solid #f1f5f9; font-size: 13px; color: #334155;">
+                <div style="padding: 18px; font-size: 13px; color: #334155; background-color: #ffffff;">
                     <p style="margin: 0 0 16px 0; font-size: 14px; color: #1e293b;">
                         Cursor connects directly to your Odoo MCP server over HTTP without needing any bridge script:
                     </p>
 
                     <!-- Step 1 -->
-                    <div style="margin-bottom: 24px; padding: 16px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px;">
+                    <div style="margin-bottom: 20px; padding: 16px; background-color: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px;">
                         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-                            <span style="background: #2563eb; color: #ffffff; font-weight: 800; font-size: 12px; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;">1</span>
+                            <span style="background-color: #2563eb; color: #ffffff; font-weight: 800; font-size: 12px; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;">1</span>
                             <strong style="font-size: 15px; color: #0f172a;">Open Tools &amp; MCP in Cursor</strong>
                         </div>
-                        <p style="margin: 0; color: #475569; line-height: 1.5;">
-                            Press <kbd style="background: #e2e8f0; padding: 2px 6px; border-radius: 4px; font-size: 12px;">Ctrl + Shift + P</kbd> (or <kbd style="background: #e2e8f0; padding: 2px 6px; border-radius: 4px; font-size: 12px;">Cmd + Shift + P</kbd> on macOS), type <strong>"mcp"</strong>, and select <strong>"Cursor: Tools &amp; MCP"</strong> (or navigate to <em>Settings &gt; Tools &amp; MCP / Customize</em>).
+                        <p style="margin: 0 0 10px 0; color: #334155; line-height: 1.5;">
+                            In Cursor, open Settings (<kbd style="background-color: #e2e8f0; padding: 2px 6px; border-radius: 4px; font-size: 12px;">Ctrl + ,</kbd> or <kbd style="background-color: #e2e8f0; padding: 2px 6px; border-radius: 4px; font-size: 12px;">Cmd + ,</kbd>). In the left sidebar, select <strong>Tools &amp; MCP</strong>, and click <strong>"New MCP Server"</strong>.
                         </p>
+                        <img src="screenshots/cursor/step_1.png" alt="Step 1: Open Tools and MCP in Cursor" style="width: 100%; max-width: 900px; height: auto; border-radius: 8px; border: 1px solid #cbd5e1; display: block;" loading="lazy"/>
                     </div>
 
                     <!-- Step 2 -->
-                    <div style="margin-bottom: 24px; padding: 16px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px;">
+                    <div style="margin-bottom: 20px; padding: 16px; background-color: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px;">
                         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-                            <span style="background: #2563eb; color: #ffffff; font-weight: 800; font-size: 12px; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;">2</span>
-                            <strong style="font-size: 15px; color: #0f172a;">Add New Custom MCP Server &gt; Select Workspace</strong>
+                            <span style="background-color: #2563eb; color: #ffffff; font-weight: 800; font-size: 12px; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;">2</span>
+                            <strong style="font-size: 15px; color: #0f172a;">Add Server Configuration in Cursor</strong>
                         </div>
-                        <p style="margin: 0 0 10px 0; color: #475569; line-height: 1.5;">
-                            Under <strong>Connected</strong>, click <strong>"+ New MCP Server"</strong> (Add a Custom MCP Server). From the dropdown, select your workspace (e.g. <code>odoo-mcp-main</code>) to create or edit <code>.cursor/mcp.json</code>.
+                        <p style="margin: 0 0 10px 0; color: #334155; line-height: 1.5;">
+                            In the <em>Add new MCP server</em> modal, enter Name <code>odoo-mcp</code>, select Type <strong>command</strong>, and click <strong>Add</strong>.
                         </p>
-                        <img src="screenshots/cursor/step_2.png" alt="Step 2: Add New MCP Server and select Workspace in Cursor" style="width: 100%; max-width: 900px; height: auto; border-radius: 8px; border: 1px solid #cbd5e1; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.06); display: block;" loading="lazy"/>
+                        <img src="screenshots/cursor/step_2.png" alt="Step 2: Add new MCP server modal in Cursor" style="width: 100%; max-width: 900px; height: auto; border-radius: 8px; border: 1px solid #cbd5e1; display: block;" loading="lazy"/>
                     </div>
 
                     <!-- Step 3 -->
-                    <div style="margin-bottom: 24px; padding: 16px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px;">
+                    <div style="margin-bottom: 20px; padding: 16px; background-color: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px;">
                         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-                            <span style="background: #2563eb; color: #ffffff; font-weight: 800; font-size: 12px; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;">3</span>
-                            <strong style="font-size: 15px; color: #0f172a;">Paste JSON Configuration into .cursor/mcp.json</strong>
+                            <span style="background-color: #2563eb; color: #ffffff; font-weight: 800; font-size: 12px; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;">3</span>
+                            <strong style="font-size: 15px; color: #0f172a;">Save Project .cursor/mcp.json Configuration</strong>
                         </div>
-                        <p style="margin: 0 0 10px 0; color: #475569; line-height: 1.5;">
-                            In your project's <code>.cursor/mcp.json</code>, paste the configuration snippet below. Copy your live <strong>Server URL</strong> directly from Odoo (via <em>MCP Server &gt; Access Tokens &gt; Share Connection</em>):
+                        <p style="margin: 0 0 10px 0; color: #334155; line-height: 1.5;">
+                            In your project root, open <code>.cursor/mcp.json</code> and paste your direct HTTP MCP server definition:
                         </p>
-                        <div style="background: #0f172a; color: #e2e8f0; padding: 14px; border-radius: 8px; font-family: monospace; font-size: 12px; overflow-x: auto; margin-bottom: 12px;">
+                        <div style="background-color: #0f172a; color: #e2e8f0; padding: 14px 16px; border-radius: 6px; font-family: Consolas, Monaco, monospace; font-size: 12px; overflow-x: auto; margin-bottom: 12px;">
 <pre style="margin: 0;">{
   "mcpServers": {
     "odoo-mcp": {
@@ -784,88 +596,79 @@
   }
 }</pre>
                         </div>
-                        <div style="background: #eff6ff; border-left: 4px solid #2563eb; padding: 10px 14px; border-radius: 4px; margin-bottom: 12px; font-size: 12px; color: #1e40af;">
-                            💡 <strong>Tip:</strong> The Server URL copied from Odoo automatically uses <code>https://</code> for tunnels like ngrok and live domains!
-                        </div>
-                        <img src="screenshots/cursor/step_3.png" alt="Step 3: Paste odoo-mcp server configuration into .cursor/mcp.json" style="width: 100%; max-width: 900px; height: auto; border-radius: 8px; border: 1px solid #cbd5e1; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.06); display: block;" loading="lazy"/>
+                        <img src="screenshots/cursor/step_3.png" alt="Step 3: Save configuration in .cursor/mcp.json" style="width: 100%; max-width: 900px; height: auto; border-radius: 8px; border: 1px solid #cbd5e1; display: block;" loading="lazy"/>
                     </div>
 
                     <!-- Step 4 -->
-                    <div style="margin-bottom: 24px; padding: 16px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px;">
+                    <div style="margin-bottom: 20px; padding: 16px; background-color: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px;">
                         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-                            <span style="background: #2563eb; color: #ffffff; font-weight: 800; font-size: 12px; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;">4</span>
-                            <strong style="font-size: 15px; color: #0f172a;">Enable Source &amp; Reload</strong>
+                            <span style="background-color: #2563eb; color: #ffffff; font-weight: 800; font-size: 12px; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;">4</span>
+                            <strong style="font-size: 15px; color: #0f172a;">Enable odoo-mcp Source Toggle in Cursor</strong>
                         </div>
-                        <p style="margin: 0 0 10px 0; color: #475569; line-height: 1.5;">
+                        <p style="margin: 0 0 10px 0; color: #334155; line-height: 1.5;">
                             In the <strong>Configure odoo-mcp</strong> modal, toggle the <code>.cursor/mcp.json</code> source <strong>ON</strong> (active) and click <strong>Done</strong>.
                         </p>
-                        <img src="screenshots/cursor/step_4.png" alt="Step 4: Enable odoo-mcp source toggle and click Done" style="width: 100%; max-width: 900px; height: auto; border-radius: 8px; border: 1px solid #cbd5e1; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.06); display: block;" loading="lazy"/>
+                        <img src="screenshots/cursor/step_4.png" alt="Step 4: Enable odoo-mcp source toggle and click Done" style="width: 100%; max-width: 900px; height: auto; border-radius: 8px; border: 1px solid #cbd5e1; display: block;" loading="lazy"/>
                     </div>
 
                     <!-- Step 5 -->
-                    <div style="margin-bottom: 12px; padding: 16px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px;">
+                    <div style="margin-bottom: 12px; padding: 16px; background-color: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px;">
                         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-                            <span style="background: #2563eb; color: #ffffff; font-weight: 800; font-size: 12px; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;">5</span>
+                            <span style="background-color: #2563eb; color: #ffffff; font-weight: 800; font-size: 12px; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;">5</span>
                             <strong style="font-size: 15px; color: #0f172a;">Verify Connection &amp; Query Live ERP in Cursor Chat</strong>
                         </div>
-                        <p style="margin: 0 0 10px 0; color: #475569; line-height: 1.5;">
-                            Notice <strong>odoo-mcp</strong> now shows green with <strong>32 tools and 2 resources enabled</strong>! In Cursor Chat (<kbd style="background: #e2e8f0; padding: 2px 6px; border-radius: 4px; font-size: 12px;">Ctrl + L</kbd>), ask: <em>"use my odoo-mcp, how many sale orders?"</em> Cursor will immediately fetch live sales figures directly from your Odoo database.
+                        <p style="margin: 0 0 10px 0; color: #334155; line-height: 1.5;">
+                            Notice <strong>odoo-mcp</strong> now shows green with <strong>32 tools and 2 resources enabled</strong>! In Cursor Chat (<kbd style="background-color: #e2e8f0; padding: 2px 6px; border-radius: 4px; font-size: 12px;">Ctrl + L</kbd>), ask: <em>"use my odoo-mcp, how many sale orders?"</em>
                         </p>
-                        <img src="screenshots/cursor/step_5.png" alt="Step 5: Verified odoo-mcp status and live chat queries in Cursor" style="width: 100%; max-width: 900px; height: auto; border-radius: 8px; border: 1px solid #cbd5e1; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.06); display: block;" loading="lazy"/>
+                        <img src="screenshots/cursor/step_5.png" alt="Step 5: Verified odoo-mcp status and live chat queries in Cursor" style="width: 100%; max-width: 900px; height: auto; border-radius: 8px; border: 1px solid #cbd5e1; display: block;" loading="lazy"/>
                     </div>
                 </div>
             </details>
 
             <!-- Antigravity IDE -->
-            <details style="border: 1px solid #e2e8f0; border-radius: 10px; padding: 14px 18px; background: #ffffff;">
-                <summary style="font-weight: 700; cursor: pointer; font-size: 16px; color: #0f172a; display: flex; align-items: center; justify-content: space-between; outline: none;">
+            <details style="width: 100%; margin-bottom: 16px; border: 1px solid #cbd5e1; border-radius: 10px; background-color: #ffffff; box-sizing: border-box; display: block; overflow: hidden;">
+                <summary style="font-weight: 700; cursor: pointer; font-size: 16px; color: #0f172a; padding: 14px 18px; outline: none; background-color: #f8fafc; border-bottom: 1px solid #e2e8f0; user-select: none;">
                     <span>🪐 <strong>Antigravity IDE (mcp_config.json)</strong></span>
-                    <div style="display: flex; align-items: center; gap: 8px;">
-                        <span style="font-size: 12px; font-weight: 600; color: #7c3aed; background: #f3e8ff; padding: 2px 8px; border-radius: 6px;">IDE</span>
-                        <span class="mcp-toggle-icon" title="Click to open or close">
-                            <span class="icon-down">▼</span>
-                            <span class="icon-up">▲</span>
-                        </span>
-                    </div>
+                    <span style="float: right; margin-top: -2px; font-size: 11px; font-weight: 700; color: #6d28d9; background-color: #f5f3ff; border: 1px solid #ddd6fe; padding: 3px 10px; border-radius: 9999px; white-space: nowrap;">IDE</span>
                 </summary>
-                <div style="margin-top: 14px; padding-top: 14px; border-top: 1px solid #f1f5f9; font-size: 13px; color: #334155;">
+                <div style="padding: 18px; font-size: 13px; color: #334155; background-color: #ffffff;">
                     <p style="margin: 0 0 16px 0; font-size: 14px; color: #1e293b;">
                         Antigravity IDE connects directly to your Odoo MCP server over HTTP via its native MCP configuration:
                     </p>
 
                     <!-- Step 1 -->
-                    <div style="margin-bottom: 24px; padding: 16px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px;">
+                    <div style="margin-bottom: 20px; padding: 16px; background-color: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px;">
                         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-                            <span style="background: #7c3aed; color: #ffffff; font-weight: 800; font-size: 12px; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;">1</span>
+                            <span style="background-color: #7c3aed; color: #ffffff; font-weight: 800; font-size: 12px; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;">1</span>
                             <strong style="font-size: 15px; color: #0f172a;">Open Manage MCP Servers in Antigravity</strong>
                         </div>
-                        <p style="margin: 0; color: #475569; line-height: 1.5;">
-                            Press <kbd style="background: #e2e8f0; padding: 2px 6px; border-radius: 4px; font-size: 12px;">Ctrl + Shift + P</kbd> (or <kbd style="background: #e2e8f0; padding: 2px 6px; border-radius: 4px; font-size: 12px;">Cmd + Shift + P</kbd> on macOS), type <strong>"manage mcp"</strong>, and select <strong>"Manage MCP servers"</strong>.
+                        <p style="margin: 0; color: #334155; line-height: 1.5;">
+                            Press <kbd style="background-color: #e2e8f0; padding: 2px 6px; border-radius: 4px; font-size: 12px;">Ctrl + Shift + P</kbd> (or <kbd style="background-color: #e2e8f0; padding: 2px 6px; border-radius: 4px; font-size: 12px;">Cmd + Shift + P</kbd> on macOS), type <strong>"manage mcp"</strong>, and select <strong>"Manage MCP servers"</strong>.
                         </p>
                     </div>
 
                     <!-- Step 2 -->
-                    <div style="margin-bottom: 24px; padding: 16px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px;">
+                    <div style="margin-bottom: 20px; padding: 16px; background-color: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px;">
                         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-                            <span style="background: #7c3aed; color: #ffffff; font-weight: 800; font-size: 12px; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;">2</span>
+                            <span style="background-color: #7c3aed; color: #ffffff; font-weight: 800; font-size: 12px; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;">2</span>
                             <strong style="font-size: 15px; color: #0f172a;">Click "View raw config"</strong>
                         </div>
-                        <p style="margin: 0 0 10px 0; color: #475569; line-height: 1.5;">
+                        <p style="margin: 0 0 10px 0; color: #334155; line-height: 1.5;">
                             In the Manage MCP servers view, click the <strong>"View raw config"</strong> button in the top right to open your global <code>mcp_config.json</code> file.
                         </p>
-                        <img src="screenshots/antigravity/step_2.png" alt="Step 2: Click View raw config in Manage MCP servers" style="width: 100%; max-width: 900px; height: auto; border-radius: 8px; border: 1px solid #cbd5e1; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.06); display: block;" loading="lazy"/>
+                        <img src="screenshots/antigravity/step_2.png" alt="Step 2: Click View raw config in Manage MCP servers" style="width: 100%; max-width: 900px; height: auto; border-radius: 8px; border: 1px solid #cbd5e1; display: block;" loading="lazy"/>
                     </div>
 
                     <!-- Step 3 -->
-                    <div style="margin-bottom: 24px; padding: 16px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px;">
+                    <div style="margin-bottom: 20px; padding: 16px; background-color: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px;">
                         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-                            <span style="background: #7c3aed; color: #ffffff; font-weight: 800; font-size: 12px; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;">3</span>
+                            <span style="background-color: #7c3aed; color: #ffffff; font-weight: 800; font-size: 12px; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;">3</span>
                             <strong style="font-size: 15px; color: #0f172a;">Paste JSON Configuration into mcp_config.json</strong>
                         </div>
-                        <p style="margin: 0 0 10px 0; color: #475569; line-height: 1.5;">
+                        <p style="margin: 0 0 10px 0; color: #334155; line-height: 1.5;">
                             Under <code>mcpServers</code>, add the <strong>odoo-mcp</strong> server configuration block with the HTTPS Server URL copied directly from Odoo (via <em>MCP Server &gt; Access Tokens &gt; Share Connection</em>):
                         </p>
-                        <div style="background: #0f172a; color: #e2e8f0; padding: 14px; border-radius: 8px; font-family: monospace; font-size: 12px; overflow-x: auto; margin-bottom: 12px;">
+                        <div style="background-color: #0f172a; color: #e2e8f0; padding: 14px 16px; border-radius: 6px; font-family: Consolas, Monaco, monospace; font-size: 12px; overflow-x: auto; margin-bottom: 12px;">
 <pre style="margin: 0;">{
   "mcpServers": {
     "odoo-mcp": {
@@ -875,119 +678,111 @@
   }
 }</pre>
                         </div>
-                        <div style="background: #eff6ff; border-left: 4px solid #2563eb; padding: 10px 14px; border-radius: 4px; margin-bottom: 12px; font-size: 12px; color: #1e40af;">
+                        <div style="background-color: #eff6ff; border-left: 4px solid #2563eb; padding: 10px 14px; border-radius: 4px; margin-bottom: 12px; font-size: 12px; color: #1e40af;">
                             💡 <strong>Tip:</strong> The Server URL copied from Odoo automatically uses <code>https://</code> for live domains and ngrok tunnels!
                         </div>
-                        <img src="screenshots/antigravity/step_3.png" alt="Step 3: Paste odoo-mcp server configuration into mcp_config.json" style="width: 100%; max-width: 900px; height: auto; border-radius: 8px; border: 1px solid #cbd5e1; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.06); display: block;" loading="lazy"/>
+                        <img src="screenshots/antigravity/step_3.png" alt="Step 3: Paste odoo-mcp server configuration into mcp_config.json" style="width: 100%; max-width: 900px; height: auto; border-radius: 8px; border: 1px solid #cbd5e1; display: block;" loading="lazy"/>
                     </div>
 
                     <!-- Step 4 -->
-                    <div style="margin-bottom: 24px; padding: 16px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px;">
+                    <div style="margin-bottom: 20px; padding: 16px; background-color: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px;">
                         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-                            <span style="background: #7c3aed; color: #ffffff; font-weight: 800; font-size: 12px; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;">4</span>
+                            <span style="background-color: #7c3aed; color: #ffffff; font-weight: 800; font-size: 12px; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;">4</span>
                             <strong style="font-size: 15px; color: #0f172a;">Click "Refresh" to Load All 32 Odoo Tools</strong>
                         </div>
-                        <p style="margin: 0 0 10px 0; color: #475569; line-height: 1.5;">
+                        <p style="margin: 0 0 10px 0; color: #334155; line-height: 1.5;">
                             Save <code>mcp_config.json</code> and switch back to the Manage MCP servers view. Click the <strong>"Refresh"</strong> button — Antigravity will instantly discover the server and register all <strong>32 Odoo tools</strong>!
                         </p>
-                        <img src="screenshots/antigravity/step_4.png" alt="Step 4: Click Refresh to load 32 Odoo tools" style="width: 100%; max-width: 900px; height: auto; border-radius: 8px; border: 1px solid #cbd5e1; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.06); display: block;" loading="lazy"/>
+                        <img src="screenshots/antigravity/step_4.png" alt="Step 4: Click Refresh to load 32 Odoo tools" style="width: 100%; max-width: 900px; height: auto; border-radius: 8px; border: 1px solid #cbd5e1; display: block;" loading="lazy"/>
                     </div>
 
                     <!-- Step 5 -->
-                    <div style="margin-bottom: 12px; padding: 16px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px;">
+                    <div style="margin-bottom: 12px; padding: 16px; background-color: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px;">
                         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-                            <span style="background: #7c3aed; color: #ffffff; font-weight: 800; font-size: 12px; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;">5</span>
+                            <span style="background-color: #7c3aed; color: #ffffff; font-weight: 800; font-size: 12px; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;">5</span>
                             <strong style="font-size: 15px; color: #0f172a;">Verify Connection &amp; Query Live ERP in Antigravity Chat</strong>
                         </div>
-                        <p style="margin: 0 0 10px 0; color: #475569; line-height: 1.5;">
+                        <p style="margin: 0 0 10px 0; color: #334155; line-height: 1.5;">
                             In the Antigravity Chat panel, ask: <em>"use my mcp, how many sale order i have"</em>. Antigravity will invoke the Odoo MCP tools in real time and return live data directly from your database!
                         </p>
-                        <img src="screenshots/antigravity/step_5.png" alt="Step 5: Verified odoo-mcp live query in Antigravity chat" style="width: 100%; max-width: 900px; height: auto; border-radius: 8px; border: 1px solid #cbd5e1; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.06); display: block;" loading="lazy"/>
+                        <img src="screenshots/antigravity/step_5.png" alt="Step 5: Verified odoo-mcp live query in Antigravity chat" style="width: 100%; max-width: 900px; height: auto; border-radius: 8px; border: 1px solid #cbd5e1; display: block;" loading="lazy"/>
                     </div>
                 </div>
             </details>
 
             <!-- Grok & xAI -->
-            <details style="border: 1px solid #e2e8f0; border-radius: 10px; padding: 14px 18px; background: #ffffff;">
-                <summary style="font-weight: 700; cursor: pointer; font-size: 16px; color: #0f172a; display: flex; align-items: center; justify-content: space-between; outline: none;">
+            <details style="width: 100%; margin-bottom: 16px; border: 1px solid #cbd5e1; border-radius: 10px; background-color: #ffffff; box-sizing: border-box; display: block; overflow: hidden;">
+                <summary style="font-weight: 700; cursor: pointer; font-size: 16px; color: #0f172a; padding: 14px 18px; outline: none; background-color: #f8fafc; border-bottom: 1px solid #e2e8f0; user-select: none;">
                     <span>⚫ <strong>Grok (xAI Web AI Assistant)</strong></span>
-                    <div style="display: flex; align-items: center; gap: 8px;">
-                        <span style="font-size: 12px; font-weight: 600; color: #0f172a; background: #f1f5f9; padding: 2px 8px; border-radius: 6px;">Web &amp; Pro</span>
-                        <span class="mcp-toggle-icon" title="Click to open or close">
-                            <span class="icon-down">▼</span>
-                            <span class="icon-up">▲</span>
-                        </span>
-                    </div>
+                    <span style="float: right; margin-top: -2px; font-size: 11px; font-weight: 700; color: #0f172a; background-color: #f1f5f9; border: 1px solid #cbd5e1; padding: 3px 10px; border-radius: 9999px; white-space: nowrap;">Web &amp; Pro</span>
                 </summary>
-                <div style="margin-top: 14px; padding-top: 14px; border-top: 1px solid #f1f5f9; font-size: 13px; color: #334155;">
+                <div style="padding: 18px; font-size: 13px; color: #334155; background-color: #ffffff;">
                     <p style="margin: 0 0 16px 0; font-size: 14px; color: #1e293b;">
                         Connect Grok directly to your Odoo ERP in 4 simple steps using Grok's native custom connector integration:
                     </p>
 
                     <!-- Step 1 -->
-                    <div style="margin-bottom: 24px; padding: 16px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px;">
+                    <div style="margin-bottom: 20px; padding: 16px; background-color: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px;">
                         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-                            <span style="background: #0f172a; color: #ffffff; font-weight: 800; font-size: 12px; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;">1</span>
+                            <span style="background-color: #0f172a; color: #ffffff; font-weight: 800; font-size: 12px; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;">1</span>
                             <strong style="font-size: 15px; color: #0f172a;">Click on Plugins &gt; New Connector &gt; Custom</strong>
                         </div>
-                        <p style="margin: 0 0 10px 0; color: #475569; line-height: 1.5;">
+                        <p style="margin: 0 0 10px 0; color: #334155; line-height: 1.5;">
                             In the left sidebar of Grok, click on <strong>Plugins</strong>. In the Connectors view, click the <strong>"New Connector"</strong> button in the top right, and choose <strong>"+ Custom: Add your own custom connector"</strong>.
                         </p>
-                        <img src="screenshots/grok/step_1.png" alt="Step 1: Click on Plugins, New Connector, and Custom in Grok" style="width: 100%; max-width: 900px; height: auto; border-radius: 8px; border: 1px solid #cbd5e1; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.06); display: block;" loading="lazy"/>
+                        <img src="screenshots/grok/step_1.png" alt="Step 1: Click on Plugins, New Connector, and Custom in Grok" style="width: 100%; max-width: 900px; height: auto; border-radius: 8px; border: 1px solid #cbd5e1; display: block;" loading="lazy"/>
                     </div>
 
                     <!-- Step 2 -->
-                    <div style="margin-bottom: 24px; padding: 16px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px;">
+                    <div style="margin-bottom: 20px; padding: 16px; background-color: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px;">
                         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-                            <span style="background: #0f172a; color: #ffffff; font-weight: 800; font-size: 12px; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;">2</span>
+                            <span style="background-color: #0f172a; color: #ffffff; font-weight: 800; font-size: 12px; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;">2</span>
                             <strong style="font-size: 15px; color: #0f172a;">Enter Name &amp; Paste HTTPS Server URL</strong>
                         </div>
-                        <p style="margin: 0 0 10px 0; color: #475569; line-height: 1.5;">
+                        <p style="margin: 0 0 10px 0; color: #334155; line-height: 1.5;">
                             In the <em>Custom Connector</em> modal, enter Name <code>odoo-mcp</code>, paste your HTTPS <strong>Server URL</strong> copied from Odoo (via <em>MCP Server &gt; Access Tokens &gt; Share Connection</em>), and click <strong>"Add Connector"</strong>.
                         </p>
 
                         <!-- HIGH-VISIBILITY ALERT BOX -->
-                        <div style="background: #fffbeb; border: 2px solid #f59e0b; border-left: 6px solid #d97706; padding: 14px 18px; border-radius: 8px; margin: 14px 0;">
-                            <div style="font-weight: 800; color: #b45309; font-size: 14px; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
-                                <span style="font-size: 16px;">⚠️</span> <span>CRITICAL CONNECTION REQUIREMENTS:</span>
+                        <div style="background-color: #fffbeb; border: 1px solid #f59e0b; border-left: 5px solid #d97706; padding: 14px 18px; border-radius: 8px; margin: 14px 0;">
+                            <div style="font-weight: 800; color: #b45309; font-size: 14px; margin-bottom: 8px;">
+                                ⚠️ CRITICAL CONNECTION REQUIREMENTS:
                             </div>
                             <ul style="margin: 0; padding-left: 20px; color: #92400e; font-size: 13px; line-height: 1.6;">
                                 <li style="margin-bottom: 6px;">
-                                    <strong style="color: #b45309; background: #fef3c7; padding: 1px 6px; border-radius: 4px;">MUST USE HTTPS (NOT HTTP):</strong>
-                                    Grok's cloud servers strictly require SSL HTTPS. Ensure your URL starts with <strong><code>https://</code></strong>.
+                                    <strong>MUST USE HTTPS (NOT HTTP):</strong> Grok's cloud servers strictly require SSL HTTPS. Ensure your URL starts with <strong><code>https://</code></strong>.
                                 </li>
                                 <li>
-                                    <strong style="color: #b45309; background: #fef3c7; padding: 1px 6px; border-radius: 4px;">LIVE DOMAIN OR NGROK REQUIRED (NO <code>localhost</code>):</strong>
-                                    Grok runs in the cloud and cannot access your local <code>localhost:8069</code>. Use a live domain or an active ngrok tunnel (e.g. <code>https://xxxx.ngrok-free.dev/mcp?token=...</code>).
+                                    <strong>LIVE DOMAIN OR NGROK REQUIRED (NO <code>localhost</code>):</strong> Grok runs in the cloud and cannot access your local <code>localhost:8069</code>. Use a live domain or an active ngrok tunnel.
                                 </li>
                             </ul>
                         </div>
 
-                        <img src="screenshots/grok/step_2.png" alt="Step 2: Enter Name and paste Server URL in Grok Custom Connector" style="width: 100%; max-width: 900px; height: auto; border-radius: 8px; border: 1px solid #cbd5e1; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.06); display: block;" loading="lazy"/>
+                        <img src="screenshots/grok/step_2.png" alt="Step 2: Enter Name and paste Server URL in Grok Custom Connector" style="width: 100%; max-width: 900px; height: auto; border-radius: 8px; border: 1px solid #cbd5e1; display: block;" loading="lazy"/>
                     </div>
 
                     <!-- Step 3 -->
-                    <div style="margin-bottom: 24px; padding: 16px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px;">
+                    <div style="margin-bottom: 20px; padding: 16px; background-color: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px;">
                         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-                            <span style="background: #0f172a; color: #ffffff; font-weight: 800; font-size: 12px; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;">3</span>
+                            <span style="background-color: #0f172a; color: #ffffff; font-weight: 800; font-size: 12px; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;">3</span>
                             <strong style="font-size: 15px; color: #0f172a;">Enable odoo-mcp Connector in Chat Input</strong>
                         </div>
-                        <p style="margin: 0 0 10px 0; color: #475569; line-height: 1.5;">
+                        <p style="margin: 0 0 10px 0; color: #334155; line-height: 1.5;">
                             In the Grok chat prompt box, click the <strong>+</strong> button, select <strong>Connectors</strong>, and toggle <strong>odoo-mcp</strong> to <strong>ON</strong> (active).
                         </p>
-                        <img src="screenshots/grok/step_3.png" alt="Step 3: Toggle odoo-mcp connector ON in Grok chat input" style="width: 100%; max-width: 900px; height: auto; border-radius: 8px; border: 1px solid #cbd5e1; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.06); display: block;" loading="lazy"/>
+                        <img src="screenshots/grok/step_3.png" alt="Step 3: Toggle odoo-mcp connector ON in Grok chat input" style="width: 100%; max-width: 900px; height: auto; border-radius: 8px; border: 1px solid #cbd5e1; display: block;" loading="lazy"/>
                     </div>
 
                     <!-- Step 4 -->
-                    <div style="margin-bottom: 12px; padding: 16px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px;">
+                    <div style="margin-bottom: 12px; padding: 16px; background-color: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px;">
                         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-                            <span style="background: #0f172a; color: #ffffff; font-weight: 800; font-size: 12px; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;">4</span>
+                            <span style="background-color: #0f172a; color: #ffffff; font-weight: 800; font-size: 12px; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;">4</span>
                             <strong style="font-size: 15px; color: #0f172a;">Verify Connection &amp; Query Live ERP in Grok Chat</strong>
                         </div>
-                        <p style="margin: 0 0 10px 0; color: #475569; line-height: 1.5;">
+                        <p style="margin: 0 0 10px 0; color: #334155; line-height: 1.5;">
                             In your chat, ask: <em>"how many sale order i have"</em>. Grok will invoke the Odoo MCP server in real time and return live data directly from your database!
                         </p>
-                        <img src="screenshots/grok/step_4.png" alt="Step 4: Grok answering live ERP sale order count query" style="width: 100%; max-width: 900px; height: auto; border-radius: 8px; border: 1px solid #cbd5e1; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.06); display: block;" loading="lazy"/>
+                        <img src="screenshots/grok/step_4.png" alt="Step 4: Grok answering live ERP sale order count query" style="width: 100%; max-width: 900px; height: auto; border-radius: 8px; border: 1px solid #cbd5e1; display: block;" loading="lazy"/>
                     </div>
                 </div>
             </details>
@@ -995,10 +790,8 @@
         </div>
     </div>
 
-
-
     <!-- ==================== SECTION: ZERO-TRUST SECURITY ==================== -->
-    <div style="margin-bottom: 40px; background: #ffffff; border-radius: 20px; border: 1px solid #e2e8f0; padding: 32px 24px;">
+    <div style="margin-bottom: 40px; background-color: #ffffff; border-radius: 16px; border: 1px solid #cbd5e1; padding: 32px 24px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.04); box-sizing: border-box;">
         <div style="text-align: center; margin-bottom: 24px;">
             <div style="font-size: 13px; font-weight: 700; color: #059669; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;">
                 Enterprise Security &amp; Control
@@ -1006,99 +799,110 @@
             <h2 style="font-size: 28px; font-weight: 800; color: #0f172a; margin: 0 0 10px 0;">
                 How Is Your Company Data Protected?
             </h2>
-            <p style="font-size: 16px; color: #64748b; max-width: 680px; margin: 0 auto;">
+            <p style="font-size: 16px; color: #475569; max-width: 680px; margin: 0 auto;">
                 Unlike external scripts that require dangerous admin credentials, Odoo MCP enforces <strong>Zero-Trust architecture</strong> natively inside Odoo.
             </p>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 24px;">
-            <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px;">
-                <div style="font-size: 22px; margin-bottom: 8px;">🛡️ <strong>Native User Permissions</strong></div>
-                <p style="font-size: 14px; color: #475569; margin: 0;">
-                    Every AI request runs strictly under the assigned Odoo user's security context (<code>request.env(user=...)</code>). The AI cannot see or modify any record that the user isn't allowed to access. <strong>Zero .sudo() bypasses.</strong>
-                </p>
-            </div>
-            <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px;">
-                <div style="font-size: 22px; margin-bottom: 8px;">⏱️ <strong>Active Rate Limiting</strong></div>
-                <p style="font-size: 14px; color: #475569; margin: 0;">
-                    Prevent runaway AI loops with sliding-window rate limits (e.g. 120 req/min). If an AI client exceeds the limit, it receives a friendly cooldown without freezing your Odoo server.
-                </p>
-            </div>
-            <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px;">
-                <div style="font-size: 22px; margin-bottom: 8px;">🚫 <strong>Read-Only Mode &amp; Safety Guards</strong></div>
-                <p style="font-size: 14px; color: #475569; margin: 0;">
-                    Toggle <em>Read-Only Mode</em> in 1 click for pure analytical assistants. Built-in bulk safety guards prevent accidental mass deletions (&gt;25 records).
-                </p>
-            </div>
-            <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px;">
-                <div style="font-size: 22px; margin-bottom: 8px;">📜 <strong>Complete Audit Logging</strong></div>
-                <p style="font-size: 14px; color: #475569; margin: 0;">
-                    Every single AI prompt, tool execution, response latency, and token estimate is recorded in the dedicated <code>mcp.audit.log</code> view with pivot and graph analytics.
-                </p>
-            </div>
-        </div>
+        <!-- 4 Security Feature Cards (Table Layout for Universal Sanitizer Support) -->
+        <table style="width: 100%; border-collapse: separate; border-spacing: 16px; table-layout: fixed; margin-bottom: 24px;">
+            <tr>
+                <td style="width: 50%; vertical-align: top; background-color: #f8fafc; border: 1px solid #cbd5e1; border-radius: 12px; padding: 20px; box-sizing: border-box;">
+                    <div style="font-size: 18px; font-weight: 700; color: #0f172a; margin-bottom: 8px;">🛡️ Native User Permissions</div>
+                    <p style="font-size: 14px; color: #334155; margin: 0; line-height: 1.5;">
+                        Every AI request runs strictly under the assigned Odoo user's security context (<code>request.env(user=...)</code>). The AI cannot see or modify any record that the user isn't allowed to access. <strong>Zero .sudo() bypasses.</strong>
+                    </p>
+                </td>
+                <td style="width: 50%; vertical-align: top; background-color: #f8fafc; border: 1px solid #cbd5e1; border-radius: 12px; padding: 20px; box-sizing: border-box;">
+                    <div style="font-size: 18px; font-weight: 700; color: #0f172a; margin-bottom: 8px;">⏱️ Active Rate Limiting</div>
+                    <p style="font-size: 14px; color: #334155; margin: 0; line-height: 1.5;">
+                        Prevent runaway AI loops with sliding-window rate limits (e.g. 120 req/min). If an AI client exceeds the limit, it receives a friendly cooldown without freezing your Odoo server.
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 50%; vertical-align: top; background-color: #f8fafc; border: 1px solid #cbd5e1; border-radius: 12px; padding: 20px; box-sizing: border-box;">
+                    <div style="font-size: 18px; font-weight: 700; color: #0f172a; margin-bottom: 8px;">🚫 Read-Only Mode &amp; Safety Guards</div>
+                    <p style="font-size: 14px; color: #334155; margin: 0; line-height: 1.5;">
+                        Toggle <em>Read-Only Mode</em> in 1 click for pure analytical assistants. Built-in bulk safety guards prevent accidental mass deletions (&gt;25 records).
+                    </p>
+                </td>
+                <td style="width: 50%; vertical-align: top; background-color: #f8fafc; border: 1px solid #cbd5e1; border-radius: 12px; padding: 20px; box-sizing: border-box;">
+                    <div style="font-size: 18px; font-weight: 700; color: #0f172a; margin-bottom: 8px;">📜 Complete Audit Logging</div>
+                    <p style="font-size: 14px; color: #334155; margin: 0; line-height: 1.5;">
+                        Every single AI prompt, tool execution, response latency, and token estimate is recorded in the dedicated <code>mcp.audit.log</code> view with pivot and graph analytics.
+                    </p>
+                </td>
+            </tr>
+        </table>
 
-        <!-- Screenshots Grid -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px;">
-            <div style="border-radius: 10px; overflow: hidden; border: 1px solid #cbd5e1; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);">
-                <img src="form_view.png" alt="Odoo MCP Token Configuration" style="width: 100%; display: block;"/>
-                <div style="padding: 10px 14px; background: #f8fafc; font-size: 12px; color: #64748b; font-weight: 600; text-align: center;">
-                    1-Click Connection &amp; Role Presets Form
-                </div>
-            </div>
-            <div style="border-radius: 10px; overflow: hidden; border: 1px solid #cbd5e1; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);">
-                <img src="audit_log.png" alt="Odoo MCP Real-time Audit Logs" style="width: 100%; display: block;"/>
-                <div style="padding: 10px 14px; background: #f8fafc; font-size: 12px; color: #64748b; font-weight: 600; text-align: center;">
-                    Real-Time Telemetry &amp; Security Audit Logging
-                </div>
-            </div>
-        </div>
+        <!-- Screenshots Table -->
+        <table style="width: 100%; border-collapse: separate; border-spacing: 16px; table-layout: fixed;">
+            <tr>
+                <td style="width: 50%; vertical-align: top;">
+                    <div style="border-radius: 10px; overflow: hidden; border: 1px solid #cbd5e1; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);">
+                        <img src="form_view.png" alt="Odoo MCP Token Configuration" style="width: 100%; display: block;"/>
+                        <div style="padding: 10px 14px; background-color: #f8fafc; font-size: 12px; color: #475569; font-weight: 600; text-align: center;">
+                            1-Click Connection &amp; Role Presets Form
+                        </div>
+                    </div>
+                </td>
+                <td style="width: 50%; vertical-align: top;">
+                    <div style="border-radius: 10px; overflow: hidden; border: 1px solid #cbd5e1; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);">
+                        <img src="audit_log.png" alt="Odoo MCP Real-time Audit Logs" style="width: 100%; display: block;"/>
+                        <div style="padding: 10px 14px; background-color: #f8fafc; font-size: 12px; color: #475569; font-weight: 600; text-align: center;">
+                            Real-Time Telemetry &amp; Security Audit Logging
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
     </div>
 
     <!-- ==================== SECTION: ARCHITECTURAL COMPARISON ==================== -->
-    <div style="margin-bottom: 40px; background: #ffffff; border-radius: 20px; border: 1px solid #e2e8f0; padding: 32px 24px;">
+    <div style="margin-bottom: 40px; background-color: #ffffff; border-radius: 16px; border: 1px solid #cbd5e1; padding: 32px 24px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.04); box-sizing: border-box;">
         <h2 style="font-size: 24px; font-weight: 800; color: #0f172a; text-align: center; margin: 0 0 20px 0;">
             Why Native Odoo MCP is Superior to External Wrappers
         </h2>
         <div style="overflow-x: auto;">
             <table style="width: 100%; border-collapse: collapse; font-size: 14px; text-align: left;">
                 <thead>
-                    <tr style="background: #f8fafc; border-bottom: 2px solid #e2e8f0;">
-                        <th style="padding: 12px 16px; color: #475569; font-weight: 700;">Feature</th>
-                        <th style="padding: 12px 16px; color: #166534; font-weight: 700; background: #f0fdf4;">⚡ Native Odoo MCP Server</th>
+                    <tr style="background-color: #f1f5f9; border-bottom: 2px solid #cbd5e1;">
+                        <th style="padding: 12px 16px; color: #0f172a; font-weight: 700;">Feature</th>
+                        <th style="padding: 12px 16px; color: #166534; font-weight: 700; background-color: #f0fdf4;">⚡ Native Odoo MCP Server</th>
                         <th style="padding: 12px 16px; color: #991b1b; font-weight: 700;">Generic XML-RPC / REST Wrappers</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr style="border-bottom: 1px solid #f1f5f9;">
-                        <td style="padding: 12px 16px; font-weight: 600;">Deployment</td>
-                        <td style="padding: 12px 16px; background: #f0fdf4; color: #166534;"><strong>Native Odoo module</strong> — Zero extra containers or daemons</td>
-                        <td style="padding: 12px 16px; color: #64748b;">Requires Docker, Node.js, FastMCP proxies</td>
+                    <tr style="border-bottom: 1px solid #e2e8f0;">
+                        <td style="padding: 12px 16px; font-weight: 700; color: #0f172a;">Deployment</td>
+                        <td style="padding: 12px 16px; background-color: #f0fdf4; color: #166534;"><strong>Native Odoo module</strong> — Zero extra containers or daemons</td>
+                        <td style="padding: 12px 16px; color: #475569;">Requires Docker, Node.js, FastMCP proxies</td>
                     </tr>
-                    <tr style="border-bottom: 1px solid #f1f5f9;">
-                        <td style="padding: 12px 16px; font-weight: 600;">Execution Speed</td>
-                        <td style="padding: 12px 16px; background: #f0fdf4; color: #166534;"><strong>In-process direct ORM</strong> (&lt;10ms execution)</td>
-                        <td style="padding: 12px 16px; color: #64748b;">Multi-hop network serialization (&gt;150ms)</td>
+                    <tr style="border-bottom: 1px solid #e2e8f0;">
+                        <td style="padding: 12px 16px; font-weight: 700; color: #0f172a;">Execution Speed</td>
+                        <td style="padding: 12px 16px; background-color: #f0fdf4; color: #166534;"><strong>In-process direct ORM</strong> (&lt;10ms execution)</td>
+                        <td style="padding: 12px 16px; color: #475569;">Multi-hop network serialization (&gt;150ms)</td>
                     </tr>
-                    <tr style="border-bottom: 1px solid #f1f5f9;">
-                        <td style="padding: 12px 16px; font-weight: 600;">Security Model</td>
-                        <td style="padding: 12px 16px; background: #f0fdf4; color: #166534;"><strong>Strict per-user scoping</strong> with native ACLs &amp; rules</td>
-                        <td style="padding: 12px 16px; color: #64748b;">Requires admin password or hardcoded sudo</td>
+                    <tr style="border-bottom: 1px solid #e2e8f0;">
+                        <td style="padding: 12px 16px; font-weight: 700; color: #0f172a;">Security Model</td>
+                        <td style="padding: 12px 16px; background-color: #f0fdf4; color: #166534;"><strong>Strict per-user scoping</strong> with native ACLs &amp; rules</td>
+                        <td style="padding: 12px 16px; color: #475569;">Requires admin password or hardcoded sudo</td>
                     </tr>
-                    <tr style="border-bottom: 1px solid #f1f5f9;">
-                        <td style="padding: 12px 16px; font-weight: 600;">AI Token Cost</td>
-                        <td style="padding: 12px 16px; background: #f0fdf4; color: #166534;"><strong>View-prioritized compression</strong> (saves ~70% tokens)</td>
-                        <td style="padding: 12px 16px; color: #64748b;">Dumps 150+ raw fields, blowing up token limits</td>
+                    <tr style="border-bottom: 1px solid #e2e8f0;">
+                        <td style="padding: 12px 16px; font-weight: 700; color: #0f172a;">AI Token Cost</td>
+                        <td style="padding: 12px 16px; background-color: #f0fdf4; color: #166534;"><strong>View-prioritized compression</strong> (saves ~70% tokens)</td>
+                        <td style="padding: 12px 16px; color: #475569;">Dumps 150+ raw fields, blowing up token limits</td>
                     </tr>
-                    <tr style="border-bottom: 1px solid #f1f5f9;">
-                        <td style="padding: 12px 16px; font-weight: 600;">Spreadsheet Dashboards</td>
-                        <td style="padding: 12px 16px; background: #f0fdf4; color: #166534;"><strong>Native in-chat HTML preview + 1-click Odoo creation</strong></td>
-                        <td style="padding: 12px 16px; color: #64748b;">Not supported</td>
+                    <tr style="border-bottom: 1px solid #e2e8f0;">
+                        <td style="padding: 12px 16px; font-weight: 700; color: #0f172a;">Spreadsheet Dashboards</td>
+                        <td style="padding: 12px 16px; background-color: #f0fdf4; color: #166534;"><strong>Native in-chat HTML preview + 1-click Odoo creation</strong></td>
+                        <td style="padding: 12px 16px; color: #475569;">Not supported</td>
                     </tr>
                     <tr>
-                        <td style="padding: 12px 16px; font-weight: 600;">Multi-Database</td>
-                        <td style="padding: 12px 16px; background: #f0fdf4; color: #166534;">Dynamic routing via <code>X-Odoo-Database</code> header</td>
-                        <td style="padding: 12px 16px; color: #64748b;">Static single-database binding</td>
+                        <td style="padding: 12px 16px; font-weight: 700; color: #0f172a;">Multi-Database</td>
+                        <td style="padding: 12px 16px; background-color: #f0fdf4; color: #166534;">Dynamic routing via <code>X-Odoo-Database</code> header</td>
+                        <td style="padding: 12px 16px; color: #475569;">Static single-database binding</td>
                     </tr>
                 </tbody>
             </table>
@@ -1111,55 +915,39 @@
             Frequently Asked Questions
         </h2>
 
-        <details style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 10px; margin-bottom: 10px; padding: 14px 18px;">
-            <summary style="font-weight: 700; cursor: pointer; color: #0f172a; display: flex; align-items: center; justify-content: space-between; outline: none;">
-                <span>Is this module 100% free and open source?</span>
-                <span class="mcp-toggle-icon" title="Click to open or close">
-                    <span class="icon-down">▼</span>
-                    <span class="icon-up">▲</span>
-                </span>
+        <details style="width: 100%; margin-bottom: 12px; border: 1px solid #cbd5e1; border-radius: 10px; background-color: #ffffff; box-sizing: border-box; display: block; overflow: hidden;">
+            <summary style="font-weight: 700; cursor: pointer; color: #0f172a; font-size: 15px; padding: 14px 18px; outline: none; background-color: #f8fafc; border-bottom: 1px solid #e2e8f0; user-select: none;">
+                Is this module 100% free and open source?
             </summary>
-            <div style="margin-top: 10px; color: #475569; font-size: 14px;">
+            <div style="padding: 16px 18px; color: #334155; font-size: 14px; line-height: 1.6; background-color: #ffffff;">
                 Yes! This module is released under the LGPL-3 license for both <strong>Odoo Community</strong> and <strong>Odoo Enterprise</strong>. There are no hidden fees, paid tiers, or limits.
             </div>
         </details>
 
-        <details style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 10px; margin-bottom: 10px; padding: 14px 18px;">
-            <summary style="font-weight: 700; cursor: pointer; color: #0f172a; display: flex; align-items: center; justify-content: space-between; outline: none;">
-                <span>Do I need to install Python packages or Docker containers on my server?</span>
-                <span class="mcp-toggle-icon" title="Click to open or close">
-                    <span class="icon-down">▼</span>
-                    <span class="icon-up">▲</span>
-                </span>
+        <details style="width: 100%; margin-bottom: 12px; border: 1px solid #cbd5e1; border-radius: 10px; background-color: #ffffff; box-sizing: border-box; display: block; overflow: hidden;">
+            <summary style="font-weight: 700; cursor: pointer; color: #0f172a; font-size: 15px; padding: 14px 18px; outline: none; background-color: #f8fafc; border-bottom: 1px solid #e2e8f0; user-select: none;">
+                Do I need to install Python packages or Docker containers on my server?
             </summary>
-            <div style="margin-top: 10px; color: #475569; font-size: 14px;">
+            <div style="padding: 16px 18px; color: #334155; font-size: 14px; line-height: 1.6; background-color: #ffffff;">
                 No. Odoo MCP Server has <strong>zero external Python dependencies</strong>. It uses standard Python libraries and pure Odoo ORM methods. You just install the module in Odoo and you are ready.
             </div>
         </details>
 
-        <details style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 10px; margin-bottom: 10px; padding: 14px 18px;">
-            <summary style="font-weight: 700; cursor: pointer; color: #0f172a; display: flex; align-items: center; justify-content: space-between; outline: none;">
-                <span>Can the AI accidentally delete or overwrite our important business data?</span>
-                <span class="mcp-toggle-icon" title="Click to open or close">
-                    <span class="icon-down">▼</span>
-                    <span class="icon-up">▲</span>
-                </span>
+        <details style="width: 100%; margin-bottom: 12px; border: 1px solid #cbd5e1; border-radius: 10px; background-color: #ffffff; box-sizing: border-box; display: block; overflow: hidden;">
+            <summary style="font-weight: 700; cursor: pointer; color: #0f172a; font-size: 15px; padding: 14px 18px; outline: none; background-color: #f8fafc; border-bottom: 1px solid #e2e8f0; user-select: none;">
+                Can the AI accidentally delete or overwrite our important business data?
             </summary>
-            <div style="margin-top: 10px; color: #475569; font-size: 14px;">
+            <div style="padding: 16px 18px; color: #334155; font-size: 14px; line-height: 1.6; background-color: #ffffff;">
                 No. You have total control: you can toggle <em>Read-Only Mode</em> so the AI cannot write anything, every operation runs with your user's specific access rights, and built-in bulk protection blocks any request attempting to modify or delete more than 25 records.
             </div>
         </details>
 
-        <details style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 10px; margin-bottom: 10px; padding: 14px 18px;">
-            <summary style="font-weight: 700; cursor: pointer; color: #0f172a; display: flex; align-items: center; justify-content: space-between; outline: none;">
-                <span>Which Odoo versions are supported?</span>
-                <span class="mcp-toggle-icon" title="Click to open or close">
-                    <span class="icon-down">▼</span>
-                    <span class="icon-up">▲</span>
-                </span>
+        <details style="width: 100%; margin-bottom: 12px; border: 1px solid #cbd5e1; border-radius: 10px; background-color: #ffffff; box-sizing: border-box; display: block; overflow: hidden;">
+            <summary style="font-weight: 700; cursor: pointer; color: #0f172a; font-size: 15px; padding: 14px 18px; outline: none; background-color: #f8fafc; border-bottom: 1px solid #e2e8f0; user-select: none;">
+                Which Odoo versions are supported?
             </summary>
-            <div style="margin-top: 10px; color: #475569; font-size: 14px;">
-                Odoo 16.0 (Community &amp; Enterprise).
+            <div style="padding: 16px 18px; color: #334155; font-size: 14px; line-height: 1.6; background-color: #ffffff;">
+                Odoo 20.0 (Community &amp; Enterprise).
             </div>
         </details>
     </div>
@@ -1169,33 +957,33 @@
         <div style="font-size: 13px; font-weight: 700; color: #475569; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">
             🏷️ Popular Search Topics &amp; Capabilities
         </div>
-        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-            <span style="background: #f1f5f9; color: #334155; font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: 6px; border: 1px solid #e2e8f0;">Odoo MCP</span>
-            <span style="background: #f1f5f9; color: #334155; font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: 6px; border: 1px solid #e2e8f0;">Model Context Protocol</span>
-            <span style="background: #f1f5f9; color: #334155; font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: 6px; border: 1px solid #e2e8f0;">Odoo AI Assistant</span>
-            <span style="background: #f1f5f9; color: #334155; font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: 6px; border: 1px solid #e2e8f0;">ChatGPT Odoo</span>
-            <span style="background: #f1f5f9; color: #334155; font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: 6px; border: 1px solid #e2e8f0;">Claude Desktop</span>
-            <span style="background: #f1f5f9; color: #334155; font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: 6px; border: 1px solid #e2e8f0;">Claude.ai Web Connector</span>
-            <span style="background: #f1f5f9; color: #334155; font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: 6px; border: 1px solid #e2e8f0;">Cursor AI Odoo</span>
-            <span style="background: #f1f5f9; color: #334155; font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: 6px; border: 1px solid #e2e8f0;">Grok xAI</span>
-            <span style="background: #f1f5f9; color: #334155; font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: 6px; border: 1px solid #e2e8f0;">Windsurf MCP</span>
-            <span style="background: #f1f5f9; color: #334155; font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: 6px; border: 1px solid #e2e8f0;">Cline VS Code</span>
-            <span style="background: #f1f5f9; color: #334155; font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: 6px; border: 1px solid #e2e8f0;">Spreadsheet Dashboard AI</span>
-            <span style="background: #f1f5f9; color: #334155; font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: 6px; border: 1px solid #e2e8f0;">Live In-Chat HTML Preview</span>
-            <span style="background: #f1f5f9; color: #334155; font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: 6px; border: 1px solid #e2e8f0;">Financial Aging Audit</span>
-            <span style="background: #f1f5f9; color: #334155; font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: 6px; border: 1px solid #e2e8f0;">CRM Deal Hunting</span>
-            <span style="background: #f1f5f9; color: #334155; font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: 6px; border: 1px solid #e2e8f0;">Inventory Shortage Alerts</span>
-            <span style="background: #f1f5f9; color: #334155; font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: 6px; border: 1px solid #e2e8f0;">Zero-Trust Security</span>
-            <span style="background: #f1f5f9; color: #334155; font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: 6px; border: 1px solid #e2e8f0;">Odoo 16.0 Community &amp; Enterprise</span>
+        <div>
+            <span>Odoo MCP</span>
+            <span>Model Context Protocol</span>
+            <span>Odoo AI Assistant</span>
+            <span>ChatGPT Odoo</span>
+            <span>Claude Desktop</span>
+            <span>Claude.ai Web Connector</span>
+            <span>Cursor AI Odoo</span>
+            <span>Grok xAI</span>
+            <span>Windsurf MCP</span>
+            <span>Cline VS Code</span>
+            <span>Spreadsheet Dashboard AI</span>
+            <span>Live In-Chat HTML Preview</span>
+            <span>Financial Aging Audit</span>
+            <span>CRM Deal Hunting</span>
+            <span>Inventory Shortage Alerts</span>
+            <span>Zero-Trust Security</span>
+            <span>Odoo 20.0 Community &amp; Enterprise</span>
         </div>
     </div>
 
     <!-- ==================== FOOTER ==================== -->
-    <div style="text-align: center; padding: 32px 16px; color: #64748b; font-size: 13px; border-top: 1px solid #e2e8f0;">
-        <p style="margin: 0 0 8px 0; font-weight: 600; color: #0f172a;">
+    <div style="text-align: center; padding: 32px 16px; color: #475569; font-size: 13px; border-top: 1px solid #e2e8f0; margin-top: 24px;">
+        <p style="margin: 0 0 8px 0; font-weight: 700; color: #0f172a; font-size: 14px;">
             Odoo MCP Server — Native Model Context Protocol for Odoo
         </p>
-        <p style="margin: 0;">
+        <p style="margin: 0; color: #64748b;">
             Free, Open-Source &amp; Zero-Trust. Built with ❤️ for the Odoo &amp; AI Engineering Community.
         </p>
     </div>
