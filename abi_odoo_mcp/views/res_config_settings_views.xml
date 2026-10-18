@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_inherit_mcp" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.mcp</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="90"/>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <app data-string="MCP Connector" string="MCP Connector" name="abi_odoo_mcp">
+                    <block title="Privacy &amp; Security Controls" name="mcp_security_block">
+                        <setting id="mcp_field_blacklist_setting" title="Protected Fields" help="Select sensitive database fields completely hidden from AI assistants (e.g. Password, Totp Secret, Bank Account).">
+                            <field name="mcp_blacklisted_field_ids" widget="many2many_tags" placeholder="Search and select fields to protect (e.g. Password, Totp Secret)..." class="w-100"/>
+                        </setting>
+                        <setting id="mcp_rate_limit_setting" title="Default Rate Limit" help="Maximum requests per minute assigned to newly generated tokens.">
+                            <field name="mcp_default_rate_limit"/>
+                        </setting>
+                        <setting id="mcp_allow_standard_actions_setting" title="Dynamic Workflow Actions" help="Allow AI agents to invoke standard public business methods (action_*, button_*) across custom and installed modules.">
+                            <field name="mcp_allow_standard_actions"/>
+                        </setting>
+                    </block>
+                    <block title="Activity Logging &amp; AI Instructions" name="mcp_telemetry_block">
+                        <setting id="mcp_audit_logging_setting" title="Activity History" help="Record an audit trail of all AI actions, queries, and execution times.">
+                            <field name="mcp_audit_logging_enabled"/>
+                        </setting>
+                        <setting id="mcp_instructions_setting" title="AI System Instructions" help="Custom instructions or business context provided to connected AI assistants.">
+                            <field name="mcp_server_instructions" class="w-100" placeholder="e.g. You are an expert ERP assistant. Always confirm before deleting records..."/>
+                        </setting>
+                    </block>
+                </app>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_mcp_config_settings" model="ir.actions.act_window">
+        <field name="name">MCP Settings</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+        <field name="context">{'module': 'abi_odoo_mcp', 'bin_size': False}</field>
+    </record>
+</odoo>

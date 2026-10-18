@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_mcp_method_whitelist_list" model="ir.ui.view">
+        <field name="name">mcp.method.whitelist.list</field>
+        <field name="model">mcp.method.whitelist</field>
+        <field name="arch" type="xml">
+            <list string="Safe Business Methods" editable="bottom">
+                <field name="name"/>
+                <field name="model_id" placeholder="All Models"/>
+                <field name="is_safe_readonly" widget="boolean_toggle"/>
+                <field name="active" widget="boolean_toggle"/>
+                <field name="description"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_mcp_method_whitelist_form" model="ir.ui.view">
+        <field name="name">mcp.method.whitelist.form</field>
+        <field name="model">mcp.method.whitelist</field>
+        <field name="arch" type="xml">
+            <form string="Safe Method Whitelist Entry">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" string="Method Technical Name"/>
+                        <h1><field name="name" placeholder="e.g. action_confirm"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="model_id" placeholder="Global (All Models)"/>
+                            <field name="is_safe_readonly"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                    <group string="Business Context &amp; Safety Rationale">
+                        <field name="description" placeholder="Document why this method is safe to expose to LLMs..."/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_mcp_method_whitelist_search" model="ir.ui.view">
+        <field name="name">mcp.method.whitelist.search</field>
+        <field name="model">mcp.method.whitelist</field>
+        <field name="arch" type="xml">
+            <search string="Search Method Whitelist">
+                <field name="name"/>
+                <field name="model_id"/>
+                <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+                <filter string="Read-Only Safe" name="readonly_safe" domain="[('is_safe_readonly', '=', True)]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Model" name="group_by_model" context="{'group_by': 'model_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_mcp_method_whitelist" model="ir.actions.act_window">
+        <field name="name">Method Whitelist</field>
+        <field name="res_model">mcp.method.whitelist</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_mcp_method_whitelist_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Whitelist business methods for AI agents!
+            </p>
+            <p>
+                Agents invoking <code>odoo_execute_kw</code> will only be permitted to run methods registered in this whitelist.
+            </p>
+        </field>
+    </record>
+</odoo>

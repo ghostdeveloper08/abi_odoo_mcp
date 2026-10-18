@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_mcp_prompt_list" model="ir.ui.view">
+        <field name="name">mcp.prompt.list</field>
+        <field name="model">mcp.prompt</field>
+        <field name="arch" type="xml">
+            <list string="MCP Prompts">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="active" widget="boolean_toggle"/>
+                <field name="description"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_mcp_prompt_form" model="ir.ui.view">
+        <field name="name">mcp.prompt.form</field>
+        <field name="model">mcp.prompt</field>
+        <field name="arch" type="xml">
+            <form string="MCP Prompt Template">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" string="Prompt Title"/>
+                        <h1><field name="name" placeholder="e.g. Summarize Overdue Invoices"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="code" placeholder="e.g. summarize_overdue_invoices"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                    <group string="AI Description">
+                        <field name="description" placeholder="Brief summary displayed to LLMs when choosing a prompt..."/>
+                    </group>
+                    <notebook>
+                        <page string="Prompt Template" name="template">
+                            <p class="text-muted">
+                                Write instructions using Python <code>{argument_name}</code> placeholders.
+                            </p>
+                            <field name="template_text" widget="text" class="font-monospace bg-light p-2"/>
+                        </page>
+                        <page string="Arguments Specification" name="arguments">
+                            <p class="text-muted">
+                                Define arguments in JSON format: <code>[{"name": "limit", "description": "Max rows", "required": false, "default": "25"}]</code>
+                            </p>
+                            <field name="arguments_json" widget="text" class="font-monospace bg-light p-2"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_mcp_prompt_search" model="ir.ui.view">
+        <field name="name">mcp.prompt.search</field>
+        <field name="model">mcp.prompt</field>
+        <field name="arch" type="xml">
+            <search string="Search Prompts">
+                <field name="name"/>
+                <field name="code"/>
+                <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_mcp_prompt" model="ir.actions.act_window">
+        <field name="name">Prompt Templates</field>
+        <field name="res_model">mcp.prompt</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_mcp_prompt_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create reusable prompt templates!
+            </p>
+            <p>
+                Prompt templates are exposed to Claude Desktop and Cursor under the <code>prompts/list</code> MCP capability.
+            </p>
+        </field>
+    </record>
+</odoo>

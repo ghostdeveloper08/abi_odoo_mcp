@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="prompt_summarize_overdue_invoices" model="mcp.prompt">
+        <field name="name">Summarize Overdue Customer Invoices</field>
+        <field name="code">summarize_overdue_invoices</field>
+        <field name="description">Analyze outstanding customer accounts receivable, aging brackets, and payment collection priorities.</field>
+        <field name="arguments_json">[
+            {"name": "partner_id", "description": "Optional customer Partner ID to narrow analysis.", "required": false},
+            {"name": "limit", "description": "Maximum number of overdue invoices to evaluate (default 25).", "required": false, "default": "25"}
+        ]</field>
+        <field name="template_text">Please analyze overdue customer invoices in Odoo:
+1. Call `odoo_search_read` on model `account.move` with domain:
+   [["move_type", "=", "out_invoice"], ["state", "=", "posted"], ["payment_state", "in", ["not_paid", "partial"]]]
+   (Optionally filter by partner_id if {partner_id} is provided). Limit results to {limit}.
+2. For each overdue invoice, calculate aging days past the `invoice_date_due`.
+3. Aggregate total outstanding debt grouped by customer.
+4. Produce a prioritized collection action summary highlighting the oldest and largest delinquent accounts.</field>
+    </record>
+
+    <record id="prompt_analyze_inventory_shortages" model="mcp.prompt">
+        <field name="name">Analyze Stock Shortages &amp; Reordering Needs</field>
+        <field name="code">analyze_inventory_shortages</field>
+        <field name="description">Identify inventory items where forecasted quantities fall below minimum safety levels or sales demands.</field>
+        <field name="arguments_json">[
+            {"name": "limit", "description": "Maximum products to inspect (default 30).", "required": false, "default": "30"}
+        ]</field>
+        <field name="template_text">Please audit inventory availability and reordering requirements in Odoo:
+1. Call `odoo_search_read` on model `product.product` with fields:
+   ["name", "default_code", "qty_available", "virtual_available", "standard_price"]
+   and domain [["type", "=", "consu"], ["virtual_available", "&lt;", 0]] (or storable products). Limit: {limit}.
+2. Identify products where forecasted quantity (`virtual_available`) is negative or below threshold.
+3. Check active vendor supply links for affected products via `product.supplierinfo`.
+4. Provide an executive replenishment proposal including recommended purchase order quantities.</field>
+    </record>
+
+    <record id="prompt_audit_partner_activity" model="mcp.prompt">
+        <field name="name">360-Degree Partner Commercial Audit</field>
+        <field name="code">audit_partner_activity</field>
+        <field name="description">Comprehensive 360-degree commercial evaluation of a customer or vendor partner.</field>
+        <field name="arguments_json">[
+            {"name": "partner_id", "description": "The Odoo database ID of the partner to audit.", "required": true}
+        ]</field>
+        <field name="template_text">Perform a comprehensive 360-degree commercial audit for Partner ID {partner_id}:
+1. Call `odoo_read` on model `res.partner` for ID [{partner_id}].
+2. Call `odoo_search_read` on `sale.order` with domain [["partner_id", "=", {partner_id}]] to review recent quotes and confirmed sales orders.
+3. Call `odoo_search_read` on `account.move` with domain [["partner_id", "=", {partner_id}]] to assess lifetime invoicing and payment discipline.
+4. Synthesize findings into:
+   - Total Lifetime Revenue
+   - Average Order Value &amp; Purchase Frequency
+   - Payment Reliability &amp; Credit Risk
+   - Recommended Commercial Next Steps</field>
+    </record>
+
+    <record id="prompt_sales_pipeline_insights" model="mcp.prompt">
+        <field name="name">Sales Pipeline &amp; Conversion Velocity Analysis</field>
+        <field name="code">sales_pipeline_insights</field>
+        <field name="description">Review open sales opportunities, deal velocity, and revenue forecast.</field>
+        <field name="arguments_json">[
+            {"name": "limit", "description": "Number of active quotations to analyze (default 20).", "required": false, "default": "20"}
+        ]</field>
+        <field name="template_text">Analyze current sales pipeline dynamics in Odoo:
+1. Call `odoo_search_read` on `sale.order` with domain [["state", "in", ["draft", "sent"]]] and order "amount_total desc", limit {limit}.
+2. Group pending quotes by salesperson (`user_id`) and customer (`partner_id`).
+3. Identify top 5 highest-value pending deals and any quotes exceeding 14 days without customer confirmation.
+4. Recommend immediate follow-up tactics to accelerate pipeline closing.</field>
+    </record>
+
+    <record id="prompt_database_hygiene_audit" model="mcp.prompt">
+        <field name="name">Enterprise Database Data Quality &amp; Hygiene Audit</field>
+        <field name="code">database_hygiene_audit</field>
+        <field name="description">Comprehensive data quality inspection checking for duplicates, missing fields, and contact anomalies.</field>
+        <field name="arguments_json">[
+            {"name": "model", "description": "The Odoo model to inspect (default 'res.partner').", "required": false, "default": "res.partner"}
+        ]</field>
+        <field name="template_text">Perform a comprehensive data hygiene audit on model `{model}`:
+1. Call `odoo_inspect_data_quality` on model `{model}` with all standard checks.
+2. Review duplicate clusters and identify high-risk duplicates sharing identical emails, phones, or VAT numbers.
+3. Check missing business fields and note high-impact data omissions.
+4. Review format anomalies (malformed emails or phone numbers).
+5. Provide a prioritization plan for data deduplication and cleanup.</field>
+    </record>
+
+    <record id="prompt_financial_aged_summary" model="mcp.prompt">
+        <field name="name">Aged Receivables &amp; Cash Collection Strategy</field>
+        <field name="code">financial_aged_summary</field>
+        <field name="description">Evaluate overdue customer receivables across aging brackets (Current, 1-30, 31-60, 61-90, 90+ days) and prioritize cash recovery.</field>
+        <field name="arguments_json">[
+            {"name": "top_partners", "description": "Number of top debtors to inspect (default 10).", "required": false, "default": "10"}
+        ]</field>
+        <field name="template_text">Analyze customer accounts receivable aging and cash collection priorities:
+1. Call `odoo_aged_partner_balance` with `account_type="receivable"` and `top_partners={top_partners}`.
+2. Review the overall aging distribution across brackets: Not Due, 1-30, 31-60, 61-90, and 90+ days.
+3. Identify the top delinquent customers and examine their oldest unpaid invoices.
+4. Prepare an executive cash collection strategy with specific outreach steps for delinquent accounts.</field>
+    </record>
+
+    <record id="prompt_lead_pipeline_review" model="mcp.prompt">
+        <field name="name">Stale Leads &amp; CRM Activity Audit</field>
+        <field name="code">lead_pipeline_review</field>
+        <field name="description">Audit CRM leads for overdue activities, uncontacted prospects, and pipeline bottlenecks.</field>
+        <field name="arguments_json">[
+            {"name": "limit", "description": "Maximum number of leads to review (default 20).", "required": false, "default": "20"}
+        ]</field>
+        <field name="template_text">Perform an audit of active CRM sales leads:
+1. Call `odoo_get_activities` with `overdue_only=true` to find sales follow-ups that have missed their deadline.
+2. Call `odoo_search_read` on `crm.lead` with domain [["type", "=", "opportunity"], ["probability", "&lt;", 100], ["date_deadline", "&lt;", "today"]] to discover overdue deals.
+3. Summarize sales reps with the most stalled deals and recommend next steps.</field>
+    </record>
+
+    <record id="prompt_create_executive_dashboard" model="mcp.prompt">
+        <field name="name">Design &amp; Deploy Executive Board Dashboard</field>
+        <field name="code">create_executive_dashboard</field>
+        <field name="description">Preview and deploy multi-column Odoo board dashboards with embedded pivot tables, charts, and direct redirect links.</field>
+        <field name="arguments_json">[
+            {"name": "model", "description": "Target Odoo business model (e.g. 'sale.order', 'crm.lead', 'account.move').", "required": true},
+            {"name": "name", "description": "Title of the dashboard to create (e.g. 'Executive Sales Performance').", "required": true},
+            {"name": "graph_type", "description": "Primary chart visualization type ('bar', 'line', 'pie').", "required": false, "default": "bar"}
+        ]</field>
+        <field name="template_text">Design and deploy a comprehensive executive dashboard in Odoo:
+1. Call `odoo_get_model_schema` on `{model}` to identify core metrics and grouping dimensions.
+2. FIRST STAGE (Interactive Preview): Call `odoo_create_dashboard` with name="{name}", model="{model}", dashboard_type="spreadsheet", confirm=false.
+3. Display the interactive side-screen preview (HTML Artifact / Canvas) using the returned `preview_html` / `dashboard_preview.html`, alongside the in-chat preview showing KPI scorecards with live database figures, monthly trend chart, and top records tables. Ask the user if they would like to make any adjustments.
+4. SECOND STAGE (Confirm &amp; Deploy): Once the user approves or confirms, call `odoo_create_dashboard` with name="{name}", model="{model}", dashboard_type="spreadsheet", confirm=true.
+5. Provide the clickable direct redirect links (`web_url` / `local_url`) so the user can immediately open and interact with their new dashboard in Odoo.</field>
+    </record>
+</odoo>
