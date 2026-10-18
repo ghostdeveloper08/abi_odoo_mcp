@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="module_category_mcp" model="ir.module.category">
+        <field name="name">MCP Server</field>
+        <field name="description">Access rights for Model Context Protocol (MCP) integrations</field>
+        <field name="sequence">30</field>
+    </record>
+
+    <record id="res_groups_privilege_mcp" model="res.groups.privilege">
+        <field name="name">MCP Server</field>
+        <field name="sequence">30</field>
+        <field name="category_id" ref="module_category_mcp"/>
+    </record>
+
+    <record id="group_mcp_user" model="res.groups">
+        <field name="name">User</field>
+        <field name="privilege_id" ref="res_groups_privilege_mcp"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        <field name="comment">Users can generate and manage their personal MCP access tokens.</field>
+    </record>
+
+    <record id="group_mcp_manager" model="res.groups">
+        <field name="name">Administrator</field>
+        <field name="privilege_id" ref="res_groups_privilege_mcp"/>
+        <field name="implied_ids" eval="[(4, ref('group_mcp_user'))]"/>
+        <field name="user_ids" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+        <field name="comment">Full administrative control over MCP tokens, method whitelists, prompt templates, and audit logs.</field>
+    </record>
+
+    <!-- System Admins automatically inherit MCP Manager -->
+    <record id="base.group_system" model="res.groups">
+        <field name="implied_ids" eval="[(4, ref('group_mcp_manager'))]"/>
+    </record>
+
+    <!-- Multi-company & User-level Record Rules -->
+    <record id="rule_mcp_access_token_user" model="ir.rule">
+        <field name="name">Personal MCP Access Tokens</field>
+        <field name="model_id" ref="model_mcp_access_token"/>
+        <field name="domain_force">[('user_id', '=', user.id)]</field>
+        <field name="groups" eval="[(4, ref('base.group_user')), (4, ref('group_mcp_user'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+
+    <record id="rule_mcp_access_token_manager" model="ir.rule">
+        <field name="name">All MCP Access Tokens (Manager)</field>
+        <field name="model_id" ref="model_mcp_access_token"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[(4, ref('group_mcp_manager')), (4, ref('base.group_system'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+
+    <record id="rule_mcp_audit_log_user" model="ir.rule">
+        <field name="name">Personal MCP Audit Logs</field>
+        <field name="model_id" ref="model_mcp_audit_log"/>
+        <field name="domain_force">[('user_id', '=', user.id)]</field>
+        <field name="groups" eval="[(4, ref('base.group_user')), (4, ref('group_mcp_user'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="False"/>
+        <field name="perm_create" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
+    <record id="rule_mcp_audit_log_manager" model="ir.rule">
+        <field name="name">All MCP Audit Logs (Manager)</field>
+        <field name="model_id" ref="model_mcp_audit_log"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[(4, ref('group_mcp_manager')), (4, ref('base.group_system'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+</odoo>
