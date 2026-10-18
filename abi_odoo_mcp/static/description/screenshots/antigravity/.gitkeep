@@ -1,0 +1,6 @@
+# This folder stores step-by-step screenshots for Antigravity connection:
+# - (Step 1): Ctrl+Shift+P -> "Manage MCP servers"
+# - step_2.png: Click "View raw config"
+# - step_3.png: Paste odoo-mcp config in mcp_config.json
+# - step_4.png: Click Refresh to load 32 Odoo tools
+# - step_5.png: Query live Odoo ERP data in chat

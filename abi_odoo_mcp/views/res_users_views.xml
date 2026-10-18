@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_users_form_inherit_mcp" model="ir.ui.view">
+        <field name="name">res.users.form.inherit.mcp</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_open_my_mcp_tokens" type="object" class="oe_stat_button" icon="fa-key" groups="abi_odoo_mcp.group_mcp_user,base.group_user">
+                    <field name="mcp_token_count" widget="statinfo" string="MCP Tokens"/>
+                </button>
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page string="MCP Access Tokens" name="mcp_tokens" groups="abi_odoo_mcp.group_mcp_manager,base.group_system">
+                    <field name="mcp_token_ids" context="{'default_user_id': id}">
+                        <list string="MCP Tokens" decoration-muted="not active">
+                            <field name="name"/>
+                            <field name="token_prefix"/>
+                            <field name="is_readonly" widget="boolean_toggle"/>
+                            <field name="active" widget="badge" decoration-success="active" decoration-danger="not active"/>
+                            <field name="total_calls"/>
+                            <field name="last_used_at"/>
+                            <field name="expires_at"/>
+                        </list>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
