@@ -4,7 +4,7 @@
 
 {
     'name': 'ABI Odoo MCP Server',
-    'version': '16.0.1.0.0',
+    'version': '17.0.1.0.0',
     'category': 'Productivity/Artificial Intelligence',
     'summary': 'Connect ChatGPT, Cursor, and AI agents with 30 tools.',
     'description': """
@@ -84,6 +84,7 @@ odoo llm, ai erp integration, odoo automation, business intelligence ai, windsur
         'views/mcp_menus.xml',
     ],
     'images': [
+        'static/description/banner.gif',
         'static/description/banner.png',
         'static/description/access_token.png',
         'static/description/audit_log.png',
