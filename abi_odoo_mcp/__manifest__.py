@@ -84,6 +84,7 @@ odoo llm, ai erp integration, odoo automation, business intelligence ai, windsur
         'views/mcp_menus.xml',
     ],
     'images': [
+        'static/description/banner.gif',
         'static/description/banner.png',
         'static/description/form_view.png',
         'static/description/access_token.png',
